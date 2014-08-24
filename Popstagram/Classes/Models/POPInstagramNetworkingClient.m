@@ -10,4 +10,17 @@
 
 @implementation POPInstagramNetworkingClient
 
++ (id)sharedPOPInstagramNetworkingClient
+{
+    static POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient = nil;
+    
+    dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedPOPInstagramNetworkingClient = [[POPInstagramNetworkingClient alloc]init];
+    });
+    
+    return sharedPOPInstagramNetworkingClient;
+}
+
 @end
+
