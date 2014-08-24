@@ -7,6 +7,7 @@
 //
 
 #import "POPAppDelegate.h"
+#import "POPInstagramNetworkingClient.h"
 
 @implementation POPAppDelegate
 
@@ -16,6 +17,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    [[POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient]requestPopularMedia];
     return YES;
 }
 
