@@ -14,5 +14,6 @@
 
 - (instancetype)initWithBaseURL:(NSURL *)url;
 - (void)requestPopularMedia;
+- (void)requestMediaWithTag:(NSString *)tag;
 
 @end

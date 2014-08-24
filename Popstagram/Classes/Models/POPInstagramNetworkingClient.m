@@ -54,5 +54,20 @@
     }];
 }
 
+- (void)requestMediaWithTag:(NSString *)tag
+{
+    NSLog(@"requesting media with tag");
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager GET:[NSString stringWithFormat:@"%@tags/search?q=%@&client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL, tag] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSLog(@"Success!");
+        NSLog(@"Response Object: %@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 @end
 
