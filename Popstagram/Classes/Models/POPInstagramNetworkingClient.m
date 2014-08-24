@@ -41,15 +41,19 @@
 - (void)requestPopularMedia
 {
     NSLog(@"requesting popular media");
+    static NSString * const kRequestForPopularMediaSuccessful = @"RequestForPopularMediaSuccessful";
+    static NSString * const kRequestForPopularMediaUnsuccessful = @"RequestForPopularMediaUnsuccessful";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Success!");
         NSLog(@"Response object: %@", responseObject);
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{@"requestPopularMediaResults": responseObject}];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaUnsuccessful object:nil userInfo:@{@"requestPopularMediaResults": error}];
         
     }];
 }
@@ -57,15 +61,19 @@
 - (void)requestMediaWithTag:(NSString *)tag
 {
     NSLog(@"requesting media with tag");
+    static NSString * const kRequestForMediaWithTagSuccessful = @"RequestForMediaWithTagSuccessful";
+    static NSString * const kRequestForMediaWithTagUnsuccessful = @"RequestForMediaWithTagUnsuccessful";
 
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%@tags/search?q=%@&client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL, tag] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Success!");
         NSLog(@"Response Object: %@", responseObject);
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagSuccessful object:nil userInfo:@{@"requestMediaWithTagResults": responseObject}];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagUnsuccessful object:nil userInfo:@{@"requestMediaWithTagResults": error}];
     }];
 }
 
