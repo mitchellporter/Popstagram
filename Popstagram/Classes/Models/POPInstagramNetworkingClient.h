@@ -12,4 +12,7 @@
 
 + (id)sharedPOPInstagramNetworkingClient;
 
+- (instancetype)initWithBaseURL:(NSURL *)url;
+- (void)requestPopularMedia;
+
 @end

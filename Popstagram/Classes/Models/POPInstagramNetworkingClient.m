@@ -16,10 +16,30 @@
     
     dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedPOPInstagramNetworkingClient = [[POPInstagramNetworkingClient alloc]init];
+        
+        static NSString * const BaseURLString = @"https://api.instagram.com/v1/";
+        sharedPOPInstagramNetworkingClient = [[POPInstagramNetworkingClient alloc]initWithBaseURL:[NSURL URLWithString:BaseURLString]];
     });
     
     return sharedPOPInstagramNetworkingClient;
+}
+
+- (instancetype)initWithBaseURL:(NSURL *)url
+{
+    self = [super initWithBaseURL:url];
+    
+    if (self) {
+        
+        self.requestSerializer = [AFJSONRequestSerializer serializer];
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
+    }
+    
+    return self;
+}
+
+- (void)requestPopularMedia
+{
+    
 }
 
 @end
