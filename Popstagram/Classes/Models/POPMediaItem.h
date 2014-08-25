@@ -9,11 +9,11 @@
 
 @interface POPMediaItem : NSObject
 
-- (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage caption:(NSString *)caption;
+- (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username;
 
 @property (nonatomic) UIImage *thumbnailImage;
 @property (nonatomic) UIImage *lowResolutionImage;
 @property (nonatomic) UIImage *standardResolutionImage;
-@property (nonatomic) NSString *caption;
+@property (nonatomic) NSString *username;
 
 @end

@@ -24,8 +24,9 @@
     
     if (self) {
         
-        //Set mediaData property
+        //Set mediaData property and initialize mediaItems array
         _mediaData = [mediaData copy];
+        _mediaItems = [[NSMutableArray alloc]init];
     }
     return self;
 }
@@ -34,9 +35,28 @@
 {
     for (id mediaDataItem in [self.mediaData objectForKey:@"data"]) {
         
-        NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
-        NSLog(@"media data key for user's username: %@", [[mediaDataItem objectForKey:@"user"]objectForKey:@"username"]);
+        //NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
+        //NSLog(@"thumbnail url: %@", [[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]);
         
+        //Generate image URL's and images from URL data
+        NSURL *thumbnailURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]];
+        UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
+        
+        NSURL *lowResolutionURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"low_resolution"]objectForKey:@"url"]];
+        UIImage *lowResolutionImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:lowResolutionURL]];
+        
+        NSURL *standardResolutionURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"standard_resolution"]objectForKey:@"url"]];
+        UIImage *standardResolutionImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:standardResolutionURL]];
+        
+        //Generate username
+        NSString *username = [NSString stringWithString:[[mediaDataItem objectForKey:@"user"]objectForKey:@"username"]];
+        
+        //Create media item with generated images and username
+        POPMediaItem *mediaItem = [[POPMediaItem alloc]initWithThumbnailImage:thumbnailImage lowResolutionImage:lowResolutionImage standardResolutionImage:standardResolutionImage username:username];
+        
+        //Add media item to media manager's media items collection
+        [self.mediaItems addObject:mediaItem];
+        NSLog(@"count: %d", self.mediaItems.count);
         
     }
     

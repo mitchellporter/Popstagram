@@ -10,7 +10,7 @@
 
 @implementation POPMediaItem
 
-- (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage caption:(NSString *)caption
+- (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username
 {
     self = [super init];
     
@@ -20,7 +20,7 @@
         _thumbnailImage = [thumbnailImage copy];
         _lowResolutionImage = [lowResolutionImage copy];
         _standardResolutionImage = [standardResolutionImage copy];
-        _caption = [caption copy];
+        _username = [username copy];
     }
     return self;
 }
