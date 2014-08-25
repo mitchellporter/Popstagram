@@ -11,9 +11,9 @@
 
 - (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username;
 
-@property (nonatomic) UIImage *thumbnailImage;
-@property (nonatomic) UIImage *lowResolutionImage;
-@property (nonatomic) UIImage *standardResolutionImage;
-@property (nonatomic) NSString *username;
+@property (nonatomic, readonly) UIImage *thumbnailImage;
+@property (nonatomic, readonly) UIImage *lowResolutionImage;
+@property (nonatomic, readonly) UIImage *standardResolutionImage;
+@property (nonatomic, readonly) NSString *username;
 
 @end

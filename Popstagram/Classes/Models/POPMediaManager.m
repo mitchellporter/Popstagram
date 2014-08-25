@@ -11,8 +11,8 @@
 
 @interface POPMediaManager ()
 
-@property (nonatomic) NSDictionary *mediaData;
-@property (nonatomic) NSMutableArray *mediaItems;
+@property (nonatomic, readwrite) NSDictionary *mediaData;
+@property (nonatomic, readwrite) NSMutableArray *mediaItems;
 
 @end
 

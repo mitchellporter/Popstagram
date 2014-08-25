@@ -9,7 +9,12 @@
 
 @interface POPMediaManager : NSObject
 
+@property (nonatomic, readonly) NSDictionary *mediaData;
+@property (nonatomic, readonly) NSMutableArray *mediaItems;
+
 - (instancetype)initWithMediaData:(NSDictionary *)mediaData;
 - (NSArray *)createAndFetchMediaItemsWithTypeImage;
+
+
 
 @end

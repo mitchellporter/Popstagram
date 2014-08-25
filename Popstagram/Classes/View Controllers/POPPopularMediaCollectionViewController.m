@@ -9,12 +9,14 @@
 #import "POPPopularMediaCollectionViewController.h"
 #import "POPInstagramNetworkingClient.h"
 #import "POPMediaManager.h"
+#import "POPMediaItem.h"
 
 @interface POPPopularMediaCollectionViewController ()
 
 #pragma mark - Properties
 @property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
 @property (nonatomic) POPMediaManager *mediaManager;
+@property (nonatomic) NSArray *mediaItems;
 
 @end
 
@@ -53,7 +55,11 @@
 
 - (void)requestMediaItemsFromMediaManager
 {
-    [self.mediaManager createAndFetchMediaItemsWithTypeImage];
+    //Create and fetch media items from media manager
+    //and reload collection view data
+    self.mediaItems = [self.mediaManager createAndFetchMediaItemsWithTypeImage];
+    [self.collectionView reloadData];
+    
 }
 
 #pragma mark - Networking Methods
@@ -68,6 +74,24 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:@"requestForPopularMediaResults"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
+}
+
+#pragma mark - Data Source Methods
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.mediaItems.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"cellId";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    UIImage *image = [self.mediaItems[indexPath.row]thumbnailImage];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    [cell.contentView addSubview:imageView];
+    
+    return cell;
 }
 
 #pragma mark - Dealloc

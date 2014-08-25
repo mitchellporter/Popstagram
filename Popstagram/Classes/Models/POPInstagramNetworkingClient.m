@@ -53,9 +53,6 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSLog(@"Success!");
-        NSLog(@"Response object: %@", responseObject);
-        
         //Post success notification
         [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{@"requestForPopularMediaResults": responseObject}];
         

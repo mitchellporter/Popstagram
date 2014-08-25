@@ -8,6 +8,15 @@
 
 #import "POPMediaItem.h"
 
+@interface POPMediaItem ()
+
+@property (nonatomic, readwrite) UIImage *thumbnailImage;
+@property (nonatomic, readwrite) UIImage *lowResolutionImage;
+@property (nonatomic, readwrite) UIImage *standardResolutionImage;
+@property (nonatomic, readwrite) NSString *username;
+
+@end
+
 @implementation POPMediaItem
 
 - (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username
