@@ -47,7 +47,13 @@
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
     self.mediaManager = [[POPMediaManager alloc]initWithMediaData:[notification.userInfo objectForKey:@"requestForPopularMediaResults"]];
-    NSLog(@"mediamanager data: %@", self.mediaManager);
+
+    [self requestMediaItemsFromMediaManager];
+}
+
+- (void)requestMediaItemsFromMediaManager
+{
+    [self.mediaManager createAndFetchMediaItemsWithTypeImage];
 }
 
 #pragma mark - Networking Methods

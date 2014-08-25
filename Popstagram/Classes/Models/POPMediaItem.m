@@ -10,4 +10,17 @@
 
 @implementation POPMediaItem
 
+- (instancetype)initWithImage:(UIImage *)image caption:(NSString *)caption
+{
+    self = [super init];
+    
+    if (self) {
+        
+        //Set the image and caption properties
+        _image = [image copy];
+        _caption = [caption copy];
+    }
+    return self;
+}
+
 @end

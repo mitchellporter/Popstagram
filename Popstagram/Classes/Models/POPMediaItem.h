@@ -9,4 +9,9 @@
 
 @interface POPMediaItem : NSObject
 
+- (instancetype)initWithImage:(UIImage *)image caption:(NSString *)caption;
+
+@property (nonatomic) UIImage *image;
+@property (nonatomic) NSString *caption;
+
 @end

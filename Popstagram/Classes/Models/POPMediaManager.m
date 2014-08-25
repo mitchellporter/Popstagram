@@ -7,6 +7,7 @@
 //
 
 #import "POPMediaManager.h"
+#import "POPMediaItem.h"
 
 @interface POPMediaManager ()
 
@@ -27,6 +28,17 @@
         _mediaData = [mediaData copy];
     }
     return self;
+}
+
+- (NSArray *)createAndFetchMediaItemsWithTypeImage
+{
+    for (id mediaData in [self.mediaData objectForKey:@"data"]) {
+        
+        NSLog(@"mediaData type: %@", [mediaData class]);
+        NSLog(@"media data key for user's username: %@", [[mediaData objectForKey:@"user"]objectForKey:@"username"]);
+    }
+    
+    return @[@"blah"];
 }
 
 @end
