@@ -10,6 +10,7 @@
 		C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9B719AAFDAD00B435CC /* POPMediaManager.m */; };
 		C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */; };
 		C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */; };
+		C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */; };
 		C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */; };
 		C3860B3319AAB00D005AF4D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3860B3219AAB00D005AF4D5 /* Main.storyboard */; };
 		C3860B3719AAC2C7005AF4D5 /* POPTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */; };
@@ -48,6 +49,8 @@
 		C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMediaItem.m; sourceTree = "<group>"; };
 		C34F7C4F19AA94F800A2AA0E /* POPInstagramNetworkingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPInstagramNetworkingClient.h; sourceTree = "<group>"; };
 		C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPInstagramNetworkingClient.m; sourceTree = "<group>"; };
+		C37283E819ABB8B60034D24E /* POPMediaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPMediaCollectionViewCell.h; path = Views/POPMediaCollectionViewCell.h; sourceTree = "<group>"; };
+		C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPMediaCollectionViewCell.m; path = Views/POPMediaCollectionViewCell.m; sourceTree = "<group>"; };
 		C3860B2D19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPopularMediaCollectionViewController.h; sourceTree = "<group>"; };
 		C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPPopularMediaCollectionViewController.m; sourceTree = "<group>"; };
 		C3860B3219AAB00D005AF4D5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +101,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C37283E719ABB84D0034D24E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C37283E819ABB8B60034D24E /* POPMediaCollectionViewCell.h */,
+				C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		C38BB5A219AA7EA600D3996F = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,7 @@
 		C3ABDE6719AA7EFF004D36AD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C37283E719ABB84D0034D24E /* Views */,
 				C3ABDE6A19AA7F35004D36AD /* Delegates */,
 				C3ABDE6919AA7F26004D36AD /* Models */,
 				C3ABDE6819AA7F18004D36AD /* View Controllers */,
@@ -357,6 +370,7 @@
 			files = (
 				C38BB5BF19AA7EA600D3996F /* POPAppDelegate.m in Sources */,
 				C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */,
+				C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */,
 				C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */,
 				C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */,
 				C38BB5BB19AA7EA600D3996F /* main.m in Sources */,
