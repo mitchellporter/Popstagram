@@ -21,15 +21,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
-    NSLog(@"viewDidLoad");
+    
+    //Setup shared networking client and request popular media from Instagram
+    [self setupSharedPOPInstagramNetworkingClient];
+    [self requestPopularMediaFromInstagram];
+    
+}
 
+- (void)setupSharedPOPInstagramNetworkingClient
+{
+    //Setup shared networking client for Instagram
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
-    
-    NSLog(@"client: %@", self.sharedPOPInstagramNetworkingClient);
+}
 
+- (void)requestPopularMediaFromInstagram
+{
+    //Request popular media from Instagram
     [self.sharedPOPInstagramNetworkingClient requestPopularMedia];
-    
 }
 
 
