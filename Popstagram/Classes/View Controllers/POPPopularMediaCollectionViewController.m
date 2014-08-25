@@ -11,13 +11,14 @@
 
 @interface POPPopularMediaCollectionViewController ()
 
+#pragma mark - Properties
 @property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
 
 @end
 
 @implementation POPPopularMediaCollectionViewController
 
-
+#pragma mark - View Methods
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -28,12 +29,14 @@
     
 }
 
+#pragma mark - Setup Methods
 - (void)setupSharedPOPInstagramNetworkingClient
 {
     //Setup shared networking client for Instagram
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
 }
 
+#pragma mark - Networking Methods
 - (void)requestPopularMediaFromInstagram
 {
     //Request popular media from Instagram
