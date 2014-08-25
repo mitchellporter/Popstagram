@@ -57,8 +57,10 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupCollectionView
 {
+    //Register for cell subclass and set background color
     [self.collectionView registerClass:[POPMediaCollectionViewCell class]
             forCellWithReuseIdentifier:cellIdentifier];
+    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
 }
 - (void)setupSharedPOPInstagramNetworkingClient
 {
