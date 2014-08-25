@@ -46,7 +46,7 @@
 
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
-    self.mediaManager = [[POPMediaManager alloc]initWithMediaData:notification.userInfo];
+    self.mediaManager = [[POPMediaManager alloc]initWithMediaData:[notification.userInfo objectForKey:@"requestForPopularMediaResults"]];
     NSLog(@"mediamanager data: %@", self.mediaManager);
 }
 
