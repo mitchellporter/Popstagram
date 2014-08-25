@@ -38,6 +38,12 @@
         //NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
         //NSLog(@"thumbnail url: %@", [[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]);
         
+        //If the media item's type is video, then continue on to the next iteration
+        //We only want to display images in this app
+        if ([[mediaDataItem objectForKey:@"type"]isEqualToString:@"video"]) {
+            continue;
+        }
+        
         //Generate image URL's and images from URL data
         NSURL *thumbnailURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]];
         UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
@@ -60,7 +66,7 @@
         
     }
     
-    return @[@"blah"];
+    return self.mediaItems;
 }
 
 @end
