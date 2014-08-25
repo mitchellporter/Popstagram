@@ -34,6 +34,7 @@ static NSString *cellIdentifier = @"cellId";
     [super viewDidLoad];
     
     //Execute various setup methods
+    [self setupTabBarItem];
     [self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
@@ -42,6 +43,11 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Setup Methods
+- (void)setupTabBarItem
+{
+    self.tabBarItem.title = @"Popular";
+
+}
 - (void)setupActivityIndicator
 {
     //Setup and show activity indicator
