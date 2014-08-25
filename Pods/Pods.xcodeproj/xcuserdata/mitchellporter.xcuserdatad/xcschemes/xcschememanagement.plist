@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Popstagram-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Popstagram.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>D7E9FEDACA064B21ADC88004</key>
+		<key>44A0744B7F654B928ED1A19C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA88FFA54A9D485BA4E56F49</key>
+		<key>5D45E719FFA84F8BA792C0B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DB705FDB262947029EFE2DA6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

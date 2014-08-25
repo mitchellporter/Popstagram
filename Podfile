@@ -3,6 +3,7 @@
 
 target "Popstagram" do
 pod 'AFNetworking', '~> 2.3'
+pod 'MBProgressHUD', '~> 0.9'
 end
 
 target "PopstagramTests" do
