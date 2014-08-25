@@ -104,6 +104,8 @@
     //Now our cell displays our media item's thumbnail image
     UIImage *image = [self.mediaItems[indexPath.row]thumbnailImage];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
+    
+    
     [cell.contentView addSubview:imageView];
     
     return cell;
