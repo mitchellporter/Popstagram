@@ -26,7 +26,6 @@
     //Setup shared networking client and request popular media from Instagram
     [self setupSharedPOPInstagramNetworkingClient];
     [self requestPopularMediaFromInstagram];
-    
 }
 
 #pragma mark - Setup Methods
