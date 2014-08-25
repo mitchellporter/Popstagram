@@ -10,14 +10,16 @@
 
 @implementation POPMediaItem
 
-- (instancetype)initWithImage:(UIImage *)image caption:(NSString *)caption
+- (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage caption:(NSString *)caption
 {
     self = [super init];
     
     if (self) {
         
-        //Set the image and caption properties
-        _image = [image copy];
+        //Set the instance's properties
+        _thumbnailImage = [thumbnailImage copy];
+        _lowResolutionImage = [lowResolutionImage copy];
+        _standardResolutionImage = [standardResolutionImage copy];
         _caption = [caption copy];
     }
     return self;

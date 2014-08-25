@@ -32,10 +32,12 @@
 
 - (NSArray *)createAndFetchMediaItemsWithTypeImage
 {
-    for (id mediaData in [self.mediaData objectForKey:@"data"]) {
+    for (id mediaDataItem in [self.mediaData objectForKey:@"data"]) {
         
-        NSLog(@"mediaData type: %@", [mediaData class]);
-        NSLog(@"media data key for user's username: %@", [[mediaData objectForKey:@"user"]objectForKey:@"username"]);
+        NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
+        NSLog(@"media data key for user's username: %@", [[mediaDataItem objectForKey:@"user"]objectForKey:@"username"]);
+        
+        
     }
     
     return @[@"blah"];
