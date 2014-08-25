@@ -7,8 +7,11 @@
 //
 
 #import "POPPopularMediaCollectionViewController.h"
+#import "POPInstagramNetworkingClient.h"
 
 @interface POPPopularMediaCollectionViewController ()
+
+@property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
 
 @end
 
@@ -18,8 +21,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
     NSLog(@"viewDidLoad");
+    NSLog(@"viewDidLoad");
+
+    self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
+    
+    NSLog(@"client: %@", self.sharedPOPInstagramNetworkingClient);
+
+    [self.sharedPOPInstagramNetworkingClient requestPopularMedia];
     
 }
 
