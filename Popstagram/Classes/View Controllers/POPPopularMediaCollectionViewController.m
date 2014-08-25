@@ -104,11 +104,15 @@
     //Now our cell displays our media item's thumbnail image
     UIImage *image = [self.mediaItems[indexPath.row]thumbnailImage];
     UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-    
-    
     [cell.contentView addSubview:imageView];
     
     return cell;
+}
+
+#pragma mark - Delegate Methods
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(100, 100);
 }
 
 #pragma mark - Dealloc
