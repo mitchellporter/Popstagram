@@ -57,13 +57,13 @@
         NSLog(@"Response object: %@", responseObject);
         
         //Post success notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{@"requestPopularMediaResults": responseObject}];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{@"requestForPopularMediaResults": responseObject}];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         
         //Post failure notificaton
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaUnsuccessful object:nil userInfo:@{@"requestPopularMediaResults": error}];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaUnsuccessful object:nil userInfo:@{@"requestForPopularMediaResults": error}];
         
     }];
 }

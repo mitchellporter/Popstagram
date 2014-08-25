@@ -35,7 +35,7 @@
 - (void)setupNotificationObservers
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:@"RequestForPopularMediaSuccessful" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleUnsuccessfulRequestForPopularMediaNotification:) name:@"RequestForPopularMediaUnsuccessful" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:) name:@"RequestForPopularMediaUnsuccessful" object:nil];
 }
 
 - (void)setupSharedPOPInstagramNetworkingClient
@@ -58,9 +58,10 @@
 }
 
 #pragma mark - Error Handling
-- (void)handleUnsuccessfulRequestForPopularMediaNotification:(NSNotification *)notification
+- (void)displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:(NSNotification *)notification
 {
-    NSLog(@"Error!");
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:@"requestForPopularMediaResults"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
 }
 
 #pragma mark - Dealloc
