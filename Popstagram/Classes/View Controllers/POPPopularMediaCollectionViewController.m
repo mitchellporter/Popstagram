@@ -10,7 +10,11 @@
 #import "POPInstagramNetworkingClient.h"
 #import "POPMediaManager.h"
 #import "POPMediaItem.h"
+#import "POPMediaCollectionViewCell.h"
 #import <MBProgressHUD.h>
+
+#pragma mark - Cell Identifier
+static NSString *cellIdentifier = @"cellId";
 
 @interface POPPopularMediaCollectionViewController ()
 
@@ -33,6 +37,7 @@
     [self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
+    [self setupCollectionView];
     [self requestPopularMediaFromInstagram];
 }
 
@@ -50,6 +55,11 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:) name:@"RequestForPopularMediaUnsuccessful" object:nil];
 }
 
+- (void)setupCollectionView
+{
+    [self.collectionView registerClass:[POPMediaCollectionViewCell class]
+            forCellWithReuseIdentifier:cellIdentifier];
+}
 - (void)setupSharedPOPInstagramNetworkingClient
 {
     //Setup shared networking client for Instagram
@@ -96,15 +106,14 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //Set cell identifier and grab reusable cell
-    static NSString *cellIdentifier = @"cellId";
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    POPMediaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     //Get current media item's thumbnailimage,
     //add to image view, and add image view as cell's subview
     //Now our cell displays our media item's thumbnail image
-    UIImage *image = [self.mediaItems[indexPath.row]thumbnailImage];
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:image];
-    [cell.contentView addSubview:imageView];
+    
+    UIImage *thumbnailImage = [self.mediaItems[indexPath.row]thumbnailImage];
+    [cell.thumbnailImageView setImage:thumbnailImage];
     
     return cell;
 }

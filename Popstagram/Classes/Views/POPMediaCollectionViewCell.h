@@ -10,4 +10,6 @@
 
 @interface POPMediaCollectionViewCell : UICollectionViewCell
 
+@property (nonatomic, readonly) UIImageView *thumbnailImageView;
+
 @end
