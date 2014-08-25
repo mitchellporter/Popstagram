@@ -8,6 +8,25 @@
 
 #import "POPMediaManager.h"
 
+@interface POPMediaManager ()
+
+@property (nonatomic) NSDictionary *mediaData;
+@property (nonatomic) NSMutableArray *mediaItems;
+
+@end
+
 @implementation POPMediaManager
+
+- (instancetype)initWithMediaData:(NSDictionary *)mediaData
+{
+    self = [super init];
+    
+    if (self) {
+        
+        //Set mediaData property
+        _mediaData = [mediaData copy];
+    }
+    return self;
+}
 
 @end

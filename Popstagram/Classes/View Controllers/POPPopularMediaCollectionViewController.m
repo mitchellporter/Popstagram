@@ -8,11 +8,13 @@
 
 #import "POPPopularMediaCollectionViewController.h"
 #import "POPInstagramNetworkingClient.h"
+#import "POPMediaManager.h"
 
 @interface POPPopularMediaCollectionViewController ()
 
 #pragma mark - Properties
 @property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
+@property (nonatomic) POPMediaManager *mediaManager;
 
 @end
 
@@ -25,14 +27,27 @@
     
     //Setup shared networking client and request popular media from Instagram
     [self setupSharedPOPInstagramNetworkingClient];
+    [self setupNotificationObservers];
     [self requestPopularMediaFromInstagram];
 }
 
 #pragma mark - Setup Methods
+- (void)setupNotificationObservers
+{
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:@"RequestForPopularMediaSuccessful" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(handleUnsuccessfulRequestForPopularMediaNotification:) name:@"RequestForPopularMediaUnsuccessful" object:nil];
+}
+
 - (void)setupSharedPOPInstagramNetworkingClient
 {
     //Setup shared networking client for Instagram
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
+}
+
+- (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
+{
+    self.mediaManager = [[POPMediaManager alloc]initWithMediaData:notification.userInfo];
+    NSLog(@"mediamanager data: %@", self.mediaManager);
 }
 
 #pragma mark - Networking Methods
@@ -41,6 +56,20 @@
     //Request popular media from Instagram
     [self.sharedPOPInstagramNetworkingClient requestPopularMedia];
 }
+
+#pragma mark - Error Handling
+- (void)handleUnsuccessfulRequestForPopularMediaNotification:(NSNotification *)notification
+{
+    NSLog(@"Error!");
+}
+
+#pragma mark - Dealloc
+- (void)dealloc
+{
+    //Remove class from notification center
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+     
 
 
 @end
