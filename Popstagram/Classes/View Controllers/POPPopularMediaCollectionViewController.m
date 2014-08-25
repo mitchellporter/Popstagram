@@ -10,6 +10,7 @@
 #import "POPInstagramNetworkingClient.h"
 #import "POPMediaManager.h"
 #import "POPMediaItem.h"
+#import <MBProgressHUD.h>
 
 @interface POPPopularMediaCollectionViewController ()
 
@@ -17,6 +18,7 @@
 @property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
 @property (nonatomic) POPMediaManager *mediaManager;
 @property (nonatomic) NSArray *mediaItems;
+@property (nonatomic) MBProgressHUD *HUD;
 
 @end
 
@@ -27,13 +29,21 @@
 {
     [super viewDidLoad];
     
-    //Setup shared networking client and request popular media from Instagram
+    //Execute various setup methods
+    [self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
     [self requestPopularMediaFromInstagram];
 }
 
 #pragma mark - Setup Methods
+- (void)setupActivityIndicator
+{
+    //Setup and show activity indicator
+    self.HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.HUD.mode = MBProgressHUDAnimationFade;
+    [self.HUD show:YES];
+}
 - (void)setupNotificationObservers
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:@"RequestForPopularMediaSuccessful" object:nil];
@@ -55,9 +65,10 @@
 
 - (void)requestMediaItemsFromMediaManager
 {
-    //Create and fetch media items from media manager
-    //and reload collection view data
+    //Create and fetch media items from media manager,
+    //hude activity indicator, and reload collection view data
     self.mediaItems = [self.mediaManager createAndFetchMediaItemsWithTypeImage];
+    [self.HUD hide:YES];
     [self.collectionView reloadData];
     
 }
