@@ -7,17 +7,13 @@
 //
 
 #import "POPAppDelegate.h"
-#import "POPInstagramNetworkingClient.h"
+
 
 @implementation POPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    [[POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient]requestPopularMedia];
+        
     return YES;
 }
 

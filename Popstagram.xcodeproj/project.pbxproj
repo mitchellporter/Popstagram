@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */; };
 		C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */; };
-		C3860B3119AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3860B2F19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.xib */; };
+		C3860B3319AAB00D005AF4D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3860B3219AAB00D005AF4D5 /* Main.storyboard */; };
+		C3860B3719AAC2C7005AF4D5 /* POPTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */; };
 		C38BB5AF19AA7EA600D3996F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5AE19AA7EA600D3996F /* Foundation.framework */; };
 		C38BB5B119AA7EA600D3996F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5B019AA7EA600D3996F /* CoreGraphics.framework */; };
 		C38BB5B319AA7EA600D3996F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5B219AA7EA600D3996F /* UIKit.framework */; };
@@ -42,7 +43,9 @@
 		C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPInstagramNetworkingClient.m; sourceTree = "<group>"; };
 		C3860B2D19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPopularMediaCollectionViewController.h; sourceTree = "<group>"; };
 		C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPPopularMediaCollectionViewController.m; sourceTree = "<group>"; };
-		C3860B2F19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POPPopularMediaCollectionViewController.xib; sourceTree = "<group>"; };
+		C3860B3219AAB00D005AF4D5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C3860B3419AAC2C7005AF4D5 /* POPTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTestViewController.h; sourceTree = "<group>"; };
+		C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPTestViewController.m; sourceTree = "<group>"; };
 		C38BB5AB19AA7EA600D3996F /* Popstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38BB5AE19AA7EA600D3996F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C38BB5B019AA7EA600D3996F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -135,6 +138,7 @@
 				C38BB5B719AA7EA600D3996F /* InfoPlist.strings */,
 				C38BB5BA19AA7EA600D3996F /* main.m */,
 				C38BB5BC19AA7EA600D3996F /* Popstagram-Prefix.pch */,
+				C3860B3219AAB00D005AF4D5 /* Main.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -172,7 +176,8 @@
 			children = (
 				C3860B2D19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.h */,
 				C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */,
-				C3860B2F19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.xib */,
+				C3860B3419AAC2C7005AF4D5 /* POPTestViewController.h */,
+				C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -281,9 +286,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3860B3119AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.xib in Resources */,
 				C38BB5B919AA7EA600D3996F /* InfoPlist.strings in Resources */,
 				C38BB5C119AA7EA600D3996F /* Images.xcassets in Resources */,
+				C3860B3319AAB00D005AF4D5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +343,7 @@
 				C38BB5BF19AA7EA600D3996F /* POPAppDelegate.m in Sources */,
 				C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */,
 				C38BB5BB19AA7EA600D3996F /* main.m in Sources */,
+				C3860B3719AAC2C7005AF4D5 /* POPTestViewController.m in Sources */,
 				C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
