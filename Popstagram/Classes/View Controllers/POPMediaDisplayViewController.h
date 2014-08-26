@@ -10,6 +10,6 @@
 
 @interface POPMediaDisplayViewController : UIViewController
 
-@property UIImage *standardResolutionImage;
+@property UIImage *lowResolutionImage;
 
 @end

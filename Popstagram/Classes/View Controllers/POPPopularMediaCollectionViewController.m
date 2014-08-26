@@ -152,9 +152,8 @@ static NSString *cellIdentifier = @"cellId";
     
     //Create media display controller and set it's standard resolution image
     self.mediaDisplayViewController = segue.destinationViewController;
-    self.mediaDisplayViewController.standardResolutionImage = [self.mediaItems[indexPath.row]standardResolutionImage];
+    self.mediaDisplayViewController.lowResolutionImage = [self.mediaItems[indexPath.row]lowResolutionImage];
     
-    NSLog(@"w0t: %@", self.mediaDisplayViewController.standardResolutionImage);
 }
 /*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {

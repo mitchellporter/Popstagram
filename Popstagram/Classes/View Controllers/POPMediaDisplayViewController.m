@@ -10,6 +10,8 @@
 
 @interface POPMediaDisplayViewController ()
 
+@property (nonatomic) UIImageView *lowResolutionImageView;
+
 @end
 
 @implementation POPMediaDisplayViewController
@@ -18,13 +20,16 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"standard resolution image: %@", self.standardResolutionImage);
+    NSLog(@"standard resolution image: %@", NSStringFromCGSize(self.lowResolutionImage.size));
+    
+    [self setupStandardResolutionImageView];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)setupStandardResolutionImageView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.lowResolutionImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 306, 306)];
+    self.lowResolutionImageView.image = self.lowResolutionImage;
+    [self.view addSubview:self.lowResolutionImageView];
 }
 
 /*
