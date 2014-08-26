@@ -12,10 +12,10 @@
 		C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */; };
 		C3630A8519AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */; };
 		C3630A8819AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8719AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m */; };
+		C3630A8B19AC1CA3008C46C2 /* POPTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8A19AC1CA3008C46C2 /* POPTagTextField.m */; };
 		C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */; };
 		C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */; };
 		C3860B3319AAB00D005AF4D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3860B3219AAB00D005AF4D5 /* Main.storyboard */; };
-		C3860B3719AAC2C7005AF4D5 /* POPTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */; };
 		C38BB5AF19AA7EA600D3996F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5AE19AA7EA600D3996F /* Foundation.framework */; };
 		C38BB5B119AA7EA600D3996F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5B019AA7EA600D3996F /* CoreGraphics.framework */; };
 		C38BB5B319AA7EA600D3996F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5B219AA7EA600D3996F /* UIKit.framework */; };
@@ -54,13 +54,13 @@
 		C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPMediaCollectionViewFlowLayout.m; path = Views/POPMediaCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C3630A8619AC1815008C46C2 /* POPTaggedMediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTaggedMediaCollectionViewController.h; sourceTree = "<group>"; };
 		C3630A8719AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPTaggedMediaCollectionViewController.m; sourceTree = "<group>"; };
+		C3630A8919AC1CA3008C46C2 /* POPTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPTagTextField.h; path = Views/POPTagTextField.h; sourceTree = "<group>"; };
+		C3630A8A19AC1CA3008C46C2 /* POPTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPTagTextField.m; path = Views/POPTagTextField.m; sourceTree = "<group>"; };
 		C37283E819ABB8B60034D24E /* POPMediaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPMediaCollectionViewCell.h; path = Views/POPMediaCollectionViewCell.h; sourceTree = "<group>"; };
 		C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPMediaCollectionViewCell.m; path = Views/POPMediaCollectionViewCell.m; sourceTree = "<group>"; };
 		C3860B2D19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPopularMediaCollectionViewController.h; sourceTree = "<group>"; };
 		C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPPopularMediaCollectionViewController.m; sourceTree = "<group>"; };
 		C3860B3219AAB00D005AF4D5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		C3860B3419AAC2C7005AF4D5 /* POPTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTestViewController.h; sourceTree = "<group>"; };
-		C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPTestViewController.m; sourceTree = "<group>"; };
 		C38BB5AB19AA7EA600D3996F /* Popstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Popstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C38BB5AE19AA7EA600D3996F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C38BB5B019AA7EA600D3996F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +111,8 @@
 				C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */,
 				C3630A8319AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.h */,
 				C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */,
+				C3630A8919AC1CA3008C46C2 /* POPTagTextField.h */,
+				C3630A8A19AC1CA3008C46C2 /* POPTagTextField.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -203,8 +205,6 @@
 			children = (
 				C3860B2D19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.h */,
 				C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */,
-				C3860B3419AAC2C7005AF4D5 /* POPTestViewController.h */,
-				C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */,
 				C3630A8619AC1815008C46C2 /* POPTaggedMediaCollectionViewController.h */,
 				C3630A8719AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m */,
 			);
@@ -381,7 +381,7 @@
 				C3630A8819AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m in Sources */,
 				C3630A8519AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m in Sources */,
 				C38BB5BB19AA7EA600D3996F /* main.m in Sources */,
-				C3860B3719AAC2C7005AF4D5 /* POPTestViewController.m in Sources */,
+				C3630A8B19AC1CA3008C46C2 /* POPTagTextField.m in Sources */,
 				C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
