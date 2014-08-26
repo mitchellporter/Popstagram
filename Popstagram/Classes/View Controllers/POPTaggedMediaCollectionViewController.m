@@ -106,7 +106,7 @@ static NSString *cellIdentifier = @"cellId";
     [self requestMediaItemsFromMediaManager];
 }
 
-#pragma mark - Media Managr Methods
+#pragma mark - Media Manager Methods
 - (void)requestMediaItemsFromMediaManager
 {
     //Create and fetch media items from media manager,
@@ -119,10 +119,11 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Networking Methods
-- (void)requestPopularMediaFromInstagram
+- (void)requestTaggedMediaFromInstagramWithTag:(NSString *)tag
 {
-    //Request popular media from Instagram
-    [self.sharedPOPInstagramNetworkingClient requestMediaWithTag:@"tag"];
+    NSLog(@"bump");
+    //Request popular media from Instagram with the passed tag
+    [self.sharedPOPInstagramNetworkingClient requestMediaWithTag:tag];
 }
 
 #pragma mark - Error Handling
@@ -154,10 +155,14 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Delegate Methods
-/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
- {
- return CGSizeMake(100, 100);
- }*/
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //Give up responder status and pass tag
+    [textField resignFirstResponder];
+    [self requestTaggedMediaFromInstagramWithTag:textField.text];
+    
+    return NO;
+}
 
 #pragma mark - Dealloc
 - (void)dealloc
