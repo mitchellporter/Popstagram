@@ -54,7 +54,7 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Setup Methods
 - (void)setupTabBarItem
 {
-    self.tabBarItem.title = @"Popular";
+    self.tabBarItem.title = @"Popular Photos";
 
 }
 - (void)setupActivityIndicator

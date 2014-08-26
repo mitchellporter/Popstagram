@@ -70,7 +70,7 @@ static NSString *cellIdentifier = @"cellId";
 }
 - (void)setupTabBarItem
 {
-    self.tabBarItem.title = @"Popular";
+    self.tabBarItem.title = @"Search Hashtags";
     
 }
 - (void)setupActivityIndicator
