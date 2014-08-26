@@ -24,6 +24,24 @@
             </objects>
             <point key="canvasLocation" x="307" y="349"/>
         </scene>
+        <!--Media Display View Controller-->
+        <scene sceneID="0aO-p7-4g8">
+            <objects>
+                <viewController id="L2C-AP-gEr" customClass="POPMediaDisplayViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Nh-9Q-1QX"/>
+                        <viewControllerLayoutGuide type="bottom" id="JAS-qE-P0K"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UD4-B8-YlK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jI-np-8j3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837" y="610"/>
+        </scene>
         <!--Tagged Media Collection View Controller - Item-->
         <scene sceneID="d6S-wn-cwt">
             <objects>
