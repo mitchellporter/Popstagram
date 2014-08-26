@@ -23,7 +23,7 @@
 		self.textAlignment = NSTextAlignmentCenter;
 		self.returnKeyType = UIReturnKeyGo;
 		self.font = [UIFont fontWithName:@"Avenir" size:18.0f];
-		self.placeholder = @"Search by hash tag: #ExampleTag";
+		self.placeholder = @"Search by hashtag: #ExampleTag";
 		self.tintColor = [UIColor whiteColor];
     }
     return self;
