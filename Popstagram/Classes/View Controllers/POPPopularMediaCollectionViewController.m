@@ -46,17 +46,10 @@ static NSString *cellIdentifier = @"cellId";
     [self requestPopularMediaFromInstagram];
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    //[self.collectionViewLayout invalidateLayout];
-}
-
 #pragma mark - Setup Methods
 - (void)setupTabBarItem
 {
     self.tabBarItem.title = @"Popular Photos";
-
 }
 
 - (void)setupNavigationElements
@@ -104,8 +97,6 @@ static NSString *cellIdentifier = @"cellId";
     self.mediaItems = [self.mediaManager createAndFetchPopularMediaItemsWithTypeImage];
     [self.HUD hide:YES];
     [self.collectionView reloadData];
-    //[(POPMediaCollectionViewFlowLayout *)[self collectionViewLayout] resetLayout];
-    
 }
 
 #pragma mark - Networking Methods
@@ -163,10 +154,6 @@ static NSString *cellIdentifier = @"cellId";
     self.mediaDisplayViewController.lowResolutionImage = [self.mediaItems[indexPath.row]lowResolutionImage];
     
 }
-/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake(100, 100);
-}*/
 
 #pragma mark - Dealloc
 - (void)dealloc

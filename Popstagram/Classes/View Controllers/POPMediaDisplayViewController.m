@@ -20,8 +20,7 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"standard resolution image: %@", NSStringFromCGSize(self.lowResolutionImage.size));
-    
+    //Execute various setup methods
     [self setupStandardResolutionImageView];
 }
 
@@ -31,16 +30,5 @@
     self.lowResolutionImageView.image = self.lowResolutionImage;
     [self.view addSubview:self.lowResolutionImageView];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

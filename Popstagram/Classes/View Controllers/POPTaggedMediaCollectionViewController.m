@@ -45,10 +45,8 @@ static NSString *cellIdentifier = @"cellId";
     [self setupTabBarItem];
     [self setupNavigationElements];
     [self setupCollectionView];
-    //[self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
-    [self setupCollectionView];
     //[self requestPopularMediaFromInstagram];
 }
 
@@ -58,13 +56,6 @@ static NSString *cellIdentifier = @"cellId";
     
     //Setup the hash tag text field
     [self setupTagTextField];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    //[self.collectionViewLayout invalidateLayout];
 }
 
 - (void)customizeView
@@ -113,10 +104,13 @@ static NSString *cellIdentifier = @"cellId";
     //Customize the collection view's frame so that it is
     //not blocked by our text field, and so that the bottom row
     //of cells is always fully visible regardless of screen size
-    if ([UIScreen mainScreen].bounds.size.height == 640) {
-    self.collectionView.frame = CGRectMake(0, 80, 320, 600);
-    } else {
+    if ([[UIScreen mainScreen]bounds].size.height == 568) {
+     
         self.collectionView.frame = CGRectMake(0, 80, 320, 570);
+        
+    } else {
+        
+        self.collectionView.frame = CGRectMake(0, 80, 320, 600);
     }
 
 }
@@ -139,12 +133,10 @@ static NSString *cellIdentifier = @"cellId";
 - (void)requestMediaItemsFromMediaManager
 {
     //Create and fetch media items from media manager,
-    //hude activity indicator, and reload collection view data
+    //hide activity indicator, and reload collection view data
     self.taggedMediaItems = [self.mediaManager createAndFetchTaggedMediaItemsWithTypeImage];
-    //[self.HUD hide:YES];
+    [self.HUD hide:YES];
     [self.collectionView reloadData];
-    //[(POPMediaCollectionViewFlowLayout *)[self collectionViewLayout] resetLayout];
-    
 }
 
 #pragma mark - Networking Methods
@@ -169,7 +161,6 @@ static NSString *cellIdentifier = @"cellId";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     //Set cell identifier and grab reusable cell
     POPMediaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
@@ -193,6 +184,10 @@ static NSString *cellIdentifier = @"cellId";
         return NO;
     }
     
+    //Setup and run the activity indicator
+    //Will run until ready to reload collection view
+    [self setupActivityIndicator];
+
     //Create final tag string after removing potential pound symbol
     //Then pass final tag string to networking method
     NSString *finalTagText = [textField.text stringByReplacingOccurrencesOfString:@"#" withString:@""];
@@ -227,17 +222,5 @@ static NSString *cellIdentifier = @"cellId";
     //Remove class from notification center
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

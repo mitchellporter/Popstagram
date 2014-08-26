@@ -20,7 +20,4 @@
 - (NSArray *)createAndFetchPopularMediaItemsWithTypeImage;
 - (NSArray *)createAndFetchTaggedMediaItemsWithTypeImage;
 
-
-
-
 @end

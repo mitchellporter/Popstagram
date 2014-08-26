@@ -50,10 +50,7 @@
 - (NSArray *)createAndFetchPopularMediaItemsWithTypeImage
 {
     for (id popularMediaDataItem in [self.popularMediaData objectForKey:@"data"]) {
-        
-        //NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
-        //NSLog(@"thumbnail url: %@", [[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]);
-        
+       
         //If the media item's type is video, then continue on to the next iteration
         //We only want to display images in this app
         if ([[popularMediaDataItem objectForKey:@"type"]isEqualToString:@"video"]) {
@@ -78,8 +75,6 @@
         
         //Add media item to media manager's media items collection
         [self.popularMediaItems addObject:popularMediaItem];
-        NSLog(@"count: %d", self.popularMediaItems.count);
-        
     }
     
     return self.popularMediaItems;
@@ -88,9 +83,6 @@
 - (NSArray *)createAndFetchTaggedMediaItemsWithTypeImage
 {
     for (id taggedMediaDataItem in [self.taggedMediaData objectForKey:@"data"]) {
-        
-        //NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
-        //NSLog(@"thumbnail url: %@", [[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]);
         
         //If the media item's type is video, then continue on to the next iteration
         //We only want to display images in this app
@@ -115,9 +107,7 @@
         POPMediaItem *taggedMediaItem = [[POPMediaItem alloc]initWithThumbnailImage:thumbnailImage lowResolutionImage:lowResolutionImage standardResolutionImage:standardResolutionImage username:username];
         
         //Add media item to media manager's media items collection
-        [self.taggedMediaItems addObject:taggedMediaItem];
-        NSLog(@"count: %d", self.taggedMediaItems.count);
-        
+        [self.taggedMediaItems addObject:taggedMediaItem];        
     }
     
     return self.taggedMediaItems;
