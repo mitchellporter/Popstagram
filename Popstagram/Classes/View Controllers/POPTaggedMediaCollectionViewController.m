@@ -32,15 +32,19 @@ static NSString *cellIdentifier = @"cellId";
 
 @implementation POPTaggedMediaCollectionViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
+
+    //Customize the current view by setting background color to white
+    //This takes care of empty black space when moving the collection view
+    //below the text field
+    [self customizeView];
     
-       //Execute various setup methods
+    //Execute various setup methods
     [self setupTabBarItem];
     [self setupNavigationElements];
+    [self setupCollectionView];
     //[self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
@@ -54,6 +58,7 @@ static NSString *cellIdentifier = @"cellId";
     
     //Setup the hash tag text field
     [self setupTagTextField];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -62,19 +67,22 @@ static NSString *cellIdentifier = @"cellId";
     //[self.collectionViewLayout invalidateLayout];
 }
 
+- (void)customizeView
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+}
+
 #pragma mark - Setup Methods
 - (void)setupTagTextField
 {
-    self.tagTextField = [[POPTagTextField alloc] initWithFrame:CGRectMake(0.0f, 50.0f, [UIScreen mainScreen].bounds.size.width, 60.0f)];
+    self.tagTextField = [[POPTagTextField alloc] initWithFrame:CGRectMake(10.0f, 70.0f, [UIScreen mainScreen].bounds.size.width - 20, 60.0f)];
     self.tagTextField.delegate = self;
     [self.view addSubview:self.tagTextField];
-    [self.tagTextField becomeFirstResponder];
-
 }
+
 - (void)setupTabBarItem
 {
     self.tabBarItem.title = @"Search Hashtags";
-    
 }
 
 - (void)setupNavigationElements
@@ -93,7 +101,6 @@ static NSString *cellIdentifier = @"cellId";
 {
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:@"RequestForMediaWithTagSuccessful" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:) name:@"RequestForMediaWithTagUnsuccessful" object:nil];
-    
 }
 
 - (void)setupCollectionView
@@ -101,7 +108,17 @@ static NSString *cellIdentifier = @"cellId";
     //Register for cell subclass and set background color
     [self.collectionView registerClass:[POPMediaCollectionViewCell class]
             forCellWithReuseIdentifier:cellIdentifier];
-    [self.collectionView setBackgroundColor:[UIColor whiteColor]];
+    [self.collectionView setBackgroundColor:[UIColor clearColor]];
+    
+    //Customize the collection view's frame so that it is
+    //not blocked by our text field, and so that the bottom row
+    //of cells is always fully visible regardless of screen size
+    if ([UIScreen mainScreen].bounds.size.height == 640) {
+    self.collectionView.frame = CGRectMake(0, 80, 320, 600);
+    } else {
+        self.collectionView.frame = CGRectMake(0, 80, 320, 570);
+    }
+
 }
 - (void)setupSharedPOPInstagramNetworkingClient
 {
@@ -133,7 +150,6 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Networking Methods
 - (void)requestTaggedMediaFromInstagramWithTag:(NSString *)tag
 {
-    NSLog(@"bump");
     //Request popular media from Instagram with the passed tag
     [self.sharedPOPInstagramNetworkingClient requestMediaWithTag:tag];
 }

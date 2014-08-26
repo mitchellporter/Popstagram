@@ -27,7 +27,7 @@
 
 - (void)setupStandardResolutionImageView
 {
-    self.lowResolutionImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 306, 306)];
+    self.lowResolutionImageView = [[UIImageView alloc]initWithFrame:CGRectMake(7, 70, 306, 306)];
     self.lowResolutionImageView.image = self.lowResolutionImage;
     [self.view addSubview:self.lowResolutionImageView];
 }
