@@ -145,9 +145,12 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //Create index path from selected item,
+    //Create index path from selected index paths array,
+    //and always grab the last one so if the user selects multiple items
+    //during app use, we will always grab the most recently selected item
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems]lastObject];
+    
     //Create media display controller and set it's standard resolution image
-    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems]firstObject];
     self.mediaDisplayViewController = segue.destinationViewController;
     self.mediaDisplayViewController.standardResolutionImage = [self.mediaItems[indexPath.row]standardResolutionImage];
     
