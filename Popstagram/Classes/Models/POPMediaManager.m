@@ -11,62 +11,117 @@
 
 @interface POPMediaManager ()
 
-@property (nonatomic, readwrite) NSDictionary *mediaData;
-@property (nonatomic, readwrite) NSMutableArray *mediaItems;
+@property (nonatomic, readwrite) NSDictionary *popularMediaData;
+@property (nonatomic, readwrite) NSMutableArray *popularMediaItems;
+@property (nonatomic, readwrite) NSDictionary *taggedMediaData;
+@property (nonatomic, readwrite) NSMutableArray *taggedMediaItems;
 
 @end
 
 @implementation POPMediaManager
 
-- (instancetype)initWithMediaData:(NSDictionary *)mediaData
+#pragma mark - Initializer Methods
+- (instancetype)initWithPopularMediaData:(NSDictionary *)popularMediaData
 {
     self = [super init];
     
     if (self) {
         
         //Set mediaData property and initialize mediaItems array
-        _mediaData = [mediaData copy];
-        _mediaItems = [[NSMutableArray alloc]init];
+        _popularMediaData = [popularMediaData copy];
+        _popularMediaItems = [[NSMutableArray alloc]init];
     }
     return self;
 }
 
-- (NSArray *)createAndFetchMediaItemsWithTypeImage
+- (instancetype)initWithTaggedMediaData:(NSDictionary *)taggedMediaData
 {
-    for (id mediaDataItem in [self.mediaData objectForKey:@"data"]) {
+    self = [super init];
+    
+    if (self) {
+        
+        //Set mediaData property and initialize mediaItems array
+        _taggedMediaData = [taggedMediaData copy];
+        _taggedMediaItems = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
+- (NSArray *)createAndFetchPopularMediaItemsWithTypeImage
+{
+    for (id popularMediaDataItem in [self.popularMediaData objectForKey:@"data"]) {
         
         //NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
         //NSLog(@"thumbnail url: %@", [[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]);
         
         //If the media item's type is video, then continue on to the next iteration
         //We only want to display images in this app
-        if ([[mediaDataItem objectForKey:@"type"]isEqualToString:@"video"]) {
+        if ([[popularMediaDataItem objectForKey:@"type"]isEqualToString:@"video"]) {
             continue;
         }
         
         //Generate image URL's and images from URL data
-        NSURL *thumbnailURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]];
+        NSURL *thumbnailURL = [NSURL URLWithString:[[[popularMediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]];
         UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
         
-        NSURL *lowResolutionURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"low_resolution"]objectForKey:@"url"]];
+        NSURL *lowResolutionURL = [NSURL URLWithString:[[[popularMediaDataItem objectForKey:@"images"]objectForKey:@"low_resolution"]objectForKey:@"url"]];
         UIImage *lowResolutionImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:lowResolutionURL]];
         
-        NSURL *standardResolutionURL = [NSURL URLWithString:[[[mediaDataItem objectForKey:@"images"]objectForKey:@"standard_resolution"]objectForKey:@"url"]];
+        NSURL *standardResolutionURL = [NSURL URLWithString:[[[popularMediaDataItem objectForKey:@"images"]objectForKey:@"standard_resolution"]objectForKey:@"url"]];
         UIImage *standardResolutionImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:standardResolutionURL]];
         
         //Generate username
-        NSString *username = [NSString stringWithString:[[mediaDataItem objectForKey:@"user"]objectForKey:@"username"]];
+        NSString *username = [NSString stringWithString:[[popularMediaDataItem objectForKey:@"user"]objectForKey:@"username"]];
         
         //Create media item with generated images and username
-        POPMediaItem *mediaItem = [[POPMediaItem alloc]initWithThumbnailImage:thumbnailImage lowResolutionImage:lowResolutionImage standardResolutionImage:standardResolutionImage username:username];
+        POPMediaItem *popularMediaItem = [[POPMediaItem alloc]initWithThumbnailImage:thumbnailImage lowResolutionImage:lowResolutionImage standardResolutionImage:standardResolutionImage username:username];
         
         //Add media item to media manager's media items collection
-        [self.mediaItems addObject:mediaItem];
-        NSLog(@"count: %d", self.mediaItems.count);
+        [self.popularMediaItems addObject:popularMediaItem];
+        NSLog(@"count: %d", self.popularMediaItems.count);
         
     }
     
-    return self.mediaItems;
+    return self.popularMediaItems;
 }
+
+- (NSArray *)createAndFetchTaggedMediaItemsWithTypeImage
+{
+    for (id taggedMediaDataItem in [self.taggedMediaData objectForKey:@"data"]) {
+        
+        //NSLog(@"mediaDataItem type: %@", [mediaDataItem class]);
+        //NSLog(@"thumbnail url: %@", [[[mediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]);
+        
+        //If the media item's type is video, then continue on to the next iteration
+        //We only want to display images in this app
+        if ([[taggedMediaDataItem objectForKey:@"type"]isEqualToString:@"video"]) {
+            continue;
+        }
+        
+        //Generate image URL's and images from URL data
+        NSURL *thumbnailURL = [NSURL URLWithString:[[[taggedMediaDataItem objectForKey:@"images"]objectForKey:@"thumbnail"]objectForKey:@"url"]];
+        UIImage *thumbnailImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:thumbnailURL]];
+        
+        NSURL *lowResolutionURL = [NSURL URLWithString:[[[taggedMediaDataItem objectForKey:@"images"]objectForKey:@"low_resolution"]objectForKey:@"url"]];
+        UIImage *lowResolutionImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:lowResolutionURL]];
+        
+        NSURL *standardResolutionURL = [NSURL URLWithString:[[[taggedMediaDataItem objectForKey:@"images"]objectForKey:@"standard_resolution"]objectForKey:@"url"]];
+        UIImage *standardResolutionImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:standardResolutionURL]];
+        
+        //Generate username
+        NSString *username = [NSString stringWithString:[[taggedMediaDataItem objectForKey:@"user"]objectForKey:@"username"]];
+        
+        //Create media item with generated images and username
+        POPMediaItem *taggedMediaItem = [[POPMediaItem alloc]initWithThumbnailImage:thumbnailImage lowResolutionImage:lowResolutionImage standardResolutionImage:standardResolutionImage username:username];
+        
+        //Add media item to media manager's media items collection
+        [self.taggedMediaItems addObject:taggedMediaItem];
+        NSLog(@"count: %d", self.taggedMediaItems.count);
+        
+    }
+    
+    return self.taggedMediaItems;
+}
+
 
 @end

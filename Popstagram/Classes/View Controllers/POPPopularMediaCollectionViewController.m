@@ -83,7 +83,7 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
-    self.mediaManager = [[POPMediaManager alloc]initWithMediaData:[notification.userInfo objectForKey:@"requestForPopularMediaResults"]];
+    self.mediaManager = [[POPMediaManager alloc]initWithPopularMediaData:[notification.userInfo objectForKey:@"requestForPopularMediaResults"]];
 
     [self requestMediaItemsFromMediaManager];
 }
@@ -92,7 +92,7 @@ static NSString *cellIdentifier = @"cellId";
 {
     //Create and fetch media items from media manager,
     //hude activity indicator, and reload collection view data
-    self.mediaItems = [self.mediaManager createAndFetchMediaItemsWithTypeImage];
+    self.mediaItems = [self.mediaManager createAndFetchPopularMediaItemsWithTypeImage];
     [self.HUD hide:YES];
     [self.collectionView reloadData];
     //[(POPMediaCollectionViewFlowLayout *)[self collectionViewLayout] resetLayout];
