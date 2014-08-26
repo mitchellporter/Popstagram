@@ -20,7 +20,7 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="uhs-td-MXY"/>
                     <connections>
-                        <segue destination="L2C-AP-gEr" kind="modal" identifier="testSegue" id="4wm-0C-Vzp"/>
+                        <segue destination="L2C-AP-gEr" kind="push" identifier="popularToMediaDisplaySegue" id="4wm-0C-Vzp"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgV-uT-Ft1" userLabel="First Responder" sceneMemberID="firstResponder"/>

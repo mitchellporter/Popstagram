@@ -147,7 +147,7 @@ static NSString *cellIdentifier = @"cellId";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     //Execute segue
-    [self performSegueWithIdentifier:@"testSegue" sender:self];
+    [self performSegueWithIdentifier:@"popularToMediaDisplaySegue" sender:self];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
