@@ -42,12 +42,10 @@ static NSString *cellIdentifier = @"cellId";
     [self customizeView];
     
     //Execute various setup methods
-    [self setupTabBarItem];
     [self setupNavigationElements];
     [self setupCollectionView];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
-    //[self requestPopularMediaFromInstagram];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -69,11 +67,6 @@ static NSString *cellIdentifier = @"cellId";
     self.tagTextField = [[POPTagTextField alloc] initWithFrame:CGRectMake(10.0f, 70.0f, [UIScreen mainScreen].bounds.size.width - 20, 60.0f)];
     self.tagTextField.delegate = self;
     [self.view addSubview:self.tagTextField];
-}
-
-- (void)setupTabBarItem
-{
-    self.tabBarItem.title = @"Search Hashtags";
 }
 
 - (void)setupNavigationElements

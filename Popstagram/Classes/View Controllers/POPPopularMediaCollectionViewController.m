@@ -49,7 +49,15 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Setup Methods
 - (void)setupTabBarItem
 {
-    self.tabBarItem.title = @"Popular Photos";
+    //This sets up the tab bar items for BOTH tabs
+    //This is necessary because by default any tabs after the first will not be set until tapped
+    //and we want all tab bar items finalized at the same time
+    [[self.tabBarController.viewControllers objectAtIndex:0]tabBarItem].image = [UIImage imageNamed:@"photos-50"];
+    [[self.tabBarController.viewControllers objectAtIndex:0]tabBarItem].title = nil;
+    
+    [[self.tabBarController.viewControllers objectAtIndex:1]tabBarItem].image = [UIImage imageNamed:@"search-50"];
+    [[self.tabBarController.viewControllers objectAtIndex:1]tabBarItem].title = nil;
+    
 }
 
 - (void)setupNavigationElements
