@@ -44,7 +44,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jI-np-8j3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1889" y="610"/>
+            <point key="canvasLocation" x="1377" y="705"/>
         </scene>
         <!--Tagged Media Collection View Controller-->
         <scene sceneID="d6S-wn-cwt">
