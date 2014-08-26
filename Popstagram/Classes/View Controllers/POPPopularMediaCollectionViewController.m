@@ -12,6 +12,7 @@
 #import "POPMediaItem.h"
 #import "POPMediaCollectionViewCell.h"
 #import "POPMediaCollectionViewFlowLayout.h"
+#import "POPMediaDisplayViewController.h"
 #import <MBProgressHUD.h>
 
 #pragma mark - Cell Identifier
@@ -24,6 +25,7 @@ static NSString *cellIdentifier = @"cellId";
 @property (nonatomic) POPMediaManager *mediaManager;
 @property (nonatomic) NSArray *mediaItems;
 @property (nonatomic) MBProgressHUD *HUD;
+@property (nonatomic) POPMediaDisplayViewController *mediaDisplayViewController;
 
 @end
 
@@ -135,9 +137,21 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Delegate Methods
--(void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Execute segue
+    [self performSegueWithIdentifier:@"testSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Create index path from selected item,
+    //Create media display controller and set it's standard resolution image
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems]firstObject];
+    self.mediaDisplayViewController = segue.destinationViewController;
+    self.mediaDisplayViewController.standardResolutionImage = [self.mediaItems[indexPath.row]standardResolutionImage];
     
+    NSLog(@"w0t: %@", self.mediaDisplayViewController.standardResolutionImage);
 }
 /*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
