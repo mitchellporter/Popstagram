@@ -102,9 +102,10 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
-    self.mediaManager = [[POPMediaManager alloc]initWithTaggedMediaData:[notification.userInfo objectForKey:@"requestForPopularMediaResults"]];
+    NSLog(@"selector");
+    self.mediaManager = [[POPMediaManager alloc]initWithTaggedMediaData:[notification.userInfo objectForKey:@"requestForTaggedMediaResults"]];
     
-    self.taggedMediaItems = [self.mediaManager createAndFetchTaggedMediaItemsWithTypeImage];
+    [self requestMediaItemsFromMediaManager];
 }
 
 #pragma mark - Media Manager Methods
@@ -113,7 +114,7 @@ static NSString *cellIdentifier = @"cellId";
     //Create and fetch media items from media manager,
     //hude activity indicator, and reload collection view data
     self.taggedMediaItems = [self.mediaManager createAndFetchTaggedMediaItemsWithTypeImage];
-    [self.HUD hide:YES];
+    //[self.HUD hide:YES];
     [self.collectionView reloadData];
     //[(POPMediaCollectionViewFlowLayout *)[self collectionViewLayout] resetLayout];
     
@@ -130,7 +131,7 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Error Handling
 - (void)displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:(NSNotification *)notification
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:@"requestForPopularMediaResults"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:@"requestForTaggedMediaResults"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 
