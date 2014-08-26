@@ -135,6 +135,10 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Delegate Methods
+-(void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 /*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(100, 100);
