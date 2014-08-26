@@ -102,9 +102,10 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
-    NSLog(@"selector");
+    //Create media manager
     self.mediaManager = [[POPMediaManager alloc]initWithTaggedMediaData:[notification.userInfo objectForKey:@"requestForTaggedMediaResults"]];
     
+    //Request media items now that we've created our media manager
     [self requestMediaItemsFromMediaManager];
 }
 
