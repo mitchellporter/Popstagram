@@ -11,6 +11,7 @@
 #import "POPMediaManager.h"
 #import "POPMediaItem.h"
 #import "POPMediaCollectionViewCell.h"
+#import "POPMediaCollectionViewFlowLayout.h"
 #import <MBProgressHUD.h>
 
 #pragma mark - Cell Identifier
@@ -40,6 +41,12 @@ static NSString *cellIdentifier = @"cellId";
     [self setupNotificationObservers];
     [self setupCollectionView];
     [self requestPopularMediaFromInstagram];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //[self.collectionViewLayout invalidateLayout];
 }
 
 #pragma mark - Setup Methods
@@ -88,6 +95,7 @@ static NSString *cellIdentifier = @"cellId";
     self.mediaItems = [self.mediaManager createAndFetchMediaItemsWithTypeImage];
     [self.HUD hide:YES];
     [self.collectionView reloadData];
+    //[(POPMediaCollectionViewFlowLayout *)[self collectionViewLayout] resetLayout];
     
 }
 
@@ -113,13 +121,13 @@ static NSString *cellIdentifier = @"cellId";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
+   
     //Set cell identifier and grab reusable cell
     POPMediaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     //Get current media item's thumbnailimage,
     //add to image view, and add image view as cell's subview
     //Now our cell displays our media item's thumbnail image
-    
     UIImage *thumbnailImage = [self.mediaItems[indexPath.row]thumbnailImage];
     [cell.thumbnailImageView setImage:thumbnailImage];
     
@@ -127,10 +135,10 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Delegate Methods
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(100, 100);
-}
+}*/
 
 #pragma mark - Dealloc
 - (void)dealloc
@@ -138,7 +146,5 @@ static NSString *cellIdentifier = @"cellId";
     //Remove class from notification center
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
-     
-
 
 @end

@@ -10,6 +10,7 @@
 		C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9B719AAFDAD00B435CC /* POPMediaManager.m */; };
 		C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */; };
 		C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */; };
+		C3630A8519AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */; };
 		C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */; };
 		C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */; };
 		C3860B3319AAB00D005AF4D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3860B3219AAB00D005AF4D5 /* Main.storyboard */; };
@@ -26,7 +27,6 @@
 		C38BB5CA19AA7EA600D3996F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C38BB5B219AA7EA600D3996F /* UIKit.framework */; };
 		C38BB5D219AA7EA600D3996F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C38BB5D019AA7EA600D3996F /* InfoPlist.strings */; };
 		C38BB5D419AA7EA600D3996F /* PopstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C38BB5D319AA7EA600D3996F /* PopstagramTests.m */; };
-		C3FDDC5F19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FDDC5E19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.m */; };
 		C9ECBFE987284FF8A5A61BBE /* libPods-Popstagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B565E5E952884524A981CBEB /* libPods-Popstagram.a */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +49,8 @@
 		C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMediaItem.m; sourceTree = "<group>"; };
 		C34F7C4F19AA94F800A2AA0E /* POPInstagramNetworkingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPInstagramNetworkingClient.h; sourceTree = "<group>"; };
 		C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPInstagramNetworkingClient.m; sourceTree = "<group>"; };
+		C3630A8319AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPMediaCollectionViewFlowLayout.h; path = Views/POPMediaCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPMediaCollectionViewFlowLayout.m; path = Views/POPMediaCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C37283E819ABB8B60034D24E /* POPMediaCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPMediaCollectionViewCell.h; path = Views/POPMediaCollectionViewCell.h; sourceTree = "<group>"; };
 		C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPMediaCollectionViewCell.m; path = Views/POPMediaCollectionViewCell.m; sourceTree = "<group>"; };
 		C3860B2D19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPopularMediaCollectionViewController.h; sourceTree = "<group>"; };
@@ -72,8 +74,6 @@
 		C38BB5CF19AA7EA600D3996F /* PopstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PopstagramTests-Info.plist"; sourceTree = "<group>"; };
 		C38BB5D119AA7EA600D3996F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C38BB5D319AA7EA600D3996F /* PopstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopstagramTests.m; sourceTree = "<group>"; };
-		C3FDDC5D19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPPopularMediaCollectionViewLayout.h; sourceTree = "<group>"; };
-		C3FDDC5E19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPPopularMediaCollectionViewLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +106,8 @@
 			children = (
 				C37283E819ABB8B60034D24E /* POPMediaCollectionViewCell.h */,
 				C37283E919ABB8B60034D24E /* POPMediaCollectionViewCell.m */,
+				C3630A8319AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.h */,
+				C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -200,8 +202,6 @@
 				C3860B2E19AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m */,
 				C3860B3419AAC2C7005AF4D5 /* POPTestViewController.h */,
 				C3860B3519AAC2C7005AF4D5 /* POPTestViewController.m */,
-				C3FDDC5D19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.h */,
-				C3FDDC5E19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -373,10 +373,10 @@
 				C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */,
 				C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */,
 				C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */,
+				C3630A8519AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m in Sources */,
 				C38BB5BB19AA7EA600D3996F /* main.m in Sources */,
 				C3860B3719AAC2C7005AF4D5 /* POPTestViewController.m in Sources */,
 				C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */,
-				C3FDDC5F19ABB34F00DFA3DD /* POPPopularMediaCollectionViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
