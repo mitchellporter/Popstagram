@@ -38,6 +38,7 @@ static NSString *cellIdentifier = @"cellId";
     
     //Execute various setup methods
     [self setupTabBarItem];
+    [self setupNavigationElements];
     [self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
@@ -57,6 +58,12 @@ static NSString *cellIdentifier = @"cellId";
     self.tabBarItem.title = @"Popular Photos";
 
 }
+
+- (void)setupNavigationElements
+{
+    self.navigationItem.title = @"Popular Instagram Photos";
+}
+
 - (void)setupActivityIndicator
 {
     //Setup and show activity indicator

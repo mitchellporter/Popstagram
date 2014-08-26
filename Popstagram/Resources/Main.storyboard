@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Popular Media Collection View Controller - Item-->
+        <!--Popular Media Collection View Controller-->
         <scene sceneID="hB6-kg-DUn">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Llj-lj-K9K" customClass="POPPopularMediaCollectionViewController" sceneMemberID="viewController">
@@ -18,14 +18,14 @@
                             <outlet property="delegate" destination="Llj-lj-K9K" id="UJR-Yn-d1z"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="50E-Fc-rC4"/>
+                    <navigationItem key="navigationItem" id="uhs-td-MXY"/>
                     <connections>
                         <segue destination="L2C-AP-gEr" kind="modal" identifier="testSegue" id="4wm-0C-Vzp"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgV-uT-Ft1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="307" y="349"/>
+            <point key="canvasLocation" x="833" y="349"/>
         </scene>
         <!--Media Display View Controller-->
         <scene sceneID="0aO-p7-4g8">
@@ -43,9 +43,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jI-np-8j3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837" y="610"/>
+            <point key="canvasLocation" x="1889" y="610"/>
         </scene>
-        <!--Tagged Media Collection View Controller - Item-->
+        <!--Tagged Media Collection View Controller-->
         <scene sceneID="d6S-wn-cwt">
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="MXI-GE-7xs" customClass="POPTaggedMediaCollectionViewController" sceneMemberID="viewController">
@@ -59,11 +59,11 @@
                             <outlet property="delegate" destination="MXI-GE-7xs" id="kpD-i4-lQv"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="rTI-N3-Hay"/>
+                    <navigationItem key="navigationItem" id="5Tv-TT-GHQ"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5C-FV-qnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="307" y="1011"/>
+            <point key="canvasLocation" x="833" y="1011"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7bX-L6-6nr">
@@ -76,13 +76,51 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Llj-lj-K9K" kind="relationship" relationship="viewControllers" id="WeB-yk-npE"/>
-                        <segue destination="MXI-GE-7xs" kind="relationship" relationship="viewControllers" id="Rgr-bw-IJj"/>
+                        <segue destination="gsR-Yi-aNs" kind="relationship" relationship="viewControllers" id="WeB-yk-npE"/>
+                        <segue destination="Scx-kP-2rQ" kind="relationship" relationship="viewControllers" id="Rgr-bw-IJj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="09Q-yp-4Xj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-219" y="349"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="nex-7s-aHK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gsR-Yi-aNs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="50E-Fc-rC4"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0EX-o6-7xV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Llj-lj-K9K" kind="relationship" relationship="rootViewController" id="xNd-po-FZz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lNT-VY-cKU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="307" y="349"/>
+        </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="jbM-qd-pXH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Scx-kP-2rQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="rTI-N3-Hay"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1co-Ng-DHZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MXI-GE-7xs" kind="relationship" relationship="rootViewController" id="juF-5p-aSR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pst-Ao-plw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="307" y="1011"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -38,6 +38,7 @@ static NSString *cellIdentifier = @"cellId";
     
        //Execute various setup methods
     [self setupTabBarItem];
+    [self setupNavigationElements];
     //[self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
     [self setupNotificationObservers];
@@ -73,6 +74,12 @@ static NSString *cellIdentifier = @"cellId";
     self.tabBarItem.title = @"Search Hashtags";
     
 }
+
+- (void)setupNavigationElements
+{
+    self.navigationItem.title = @"Search by Hashtag";
+}
+
 - (void)setupActivityIndicator
 {
     //Setup and show activity indicator
