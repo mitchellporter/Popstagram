@@ -150,6 +150,7 @@ static NSString *cellIdentifier = @"cellId";
     [self performSegueWithIdentifier:@"popularToMediaDisplaySegue" sender:self];
 }
 
+#pragma mark - Segue Methods
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     //Create index path from selected index paths array,

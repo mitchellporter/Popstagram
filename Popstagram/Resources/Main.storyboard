@@ -40,6 +40,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0gx-Ig-lzN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jI-np-8j3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,6 +61,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="5Tv-TT-GHQ"/>
+                    <connections>
+                        <segue destination="L2C-AP-gEr" kind="push" identifier="taggedToMediaDisplaySegue" id="mor-rK-pnw"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q5C-FV-qnp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -128,4 +132,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="mor-rK-pnw"/>
+    </inferredMetricsTieBreakers>
 </document>

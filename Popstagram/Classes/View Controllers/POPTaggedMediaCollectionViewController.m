@@ -12,6 +12,7 @@
 #import "POPMediaItem.h"
 #import "POPMediaCollectionViewCell.h"
 #import "POPTagTextField.h"
+#import "POPMediaDisplayViewController.h"
 #import <MBProgressHUD.h>
 
 #pragma mark - Cell Identifier
@@ -25,6 +26,7 @@ static NSString *cellIdentifier = @"cellId";
 @property (nonatomic) NSArray *taggedMediaItems;
 @property (nonatomic) MBProgressHUD *HUD;
 @property (nonatomic) POPTagTextField *tagTextField;
+@property (nonatomic) POPMediaDisplayViewController *mediaDisplayViewController;
 
 @end
 
@@ -181,6 +183,26 @@ static NSString *cellIdentifier = @"cellId";
     [self requestTaggedMediaFromInstagramWithTag:finalTagText];
     
     return NO;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //Execute segue
+    [self performSegueWithIdentifier:@"taggedToMediaDisplaySegue" sender:self];
+}
+
+#pragma mark - Segue Methods
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    //Create index path from selected index paths array,
+    //and always grab the last one so if the user selects multiple items
+    //during app use, we will always grab the most recently selected item
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems]lastObject];
+    
+    //Create media display controller and set it's standard resolution image
+    self.mediaDisplayViewController = segue.destinationViewController;
+    self.mediaDisplayViewController.lowResolutionImage = [self.taggedMediaItems[indexPath.row]lowResolutionImage];
+    
 }
 
 #pragma mark - Dealloc
