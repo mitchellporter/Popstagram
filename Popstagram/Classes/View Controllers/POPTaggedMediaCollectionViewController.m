@@ -83,8 +83,8 @@ static NSString *cellIdentifier = @"cellId";
 }
 - (void)setupNotificationObservers
 {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:@"RequestForMediaWithTagSuccessful" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:) name:@"RequestForMediaWithTagUnsuccessful" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:kRequestForMediaWithTagSuccessful object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:) name:kRequestForMediaWithTagUnsuccessful object:nil];
 }
 
 - (void)setupCollectionView
@@ -116,7 +116,7 @@ static NSString *cellIdentifier = @"cellId";
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
     //Create media manager
-    self.mediaManager = [[POPMediaManager alloc]initWithTaggedMediaData:[notification.userInfo objectForKey:@"requestForTaggedMediaResults"]];
+    self.mediaManager = [[POPMediaManager alloc]initWithTaggedMediaData:[notification.userInfo objectForKey:kRequestForMediaWithTagResultsKey]];
     
     //Request media items now that we've created our media manager
     [self requestMediaItemsFromMediaManager];
@@ -142,7 +142,7 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Error Handling
 - (void)displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:(NSNotification *)notification
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:@"requestForTaggedMediaResults"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:kRequestForMediaWithTagResultsKey]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 

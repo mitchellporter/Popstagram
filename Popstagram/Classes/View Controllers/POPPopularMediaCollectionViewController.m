@@ -31,6 +31,7 @@ static NSString *cellIdentifier = @"cellId";
 
 @implementation POPPopularMediaCollectionViewController
 
+
 #pragma mark - View Methods
 - (void)viewDidLoad
 {
@@ -74,8 +75,8 @@ static NSString *cellIdentifier = @"cellId";
 }
 - (void)setupNotificationObservers
 {
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:@"RequestForPopularMediaSuccessful" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:) name:@"RequestForPopularMediaUnsuccessful" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:kRequestForPopularMediaSuccessful object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:) name:kRequestForPopularMediaUnsuccessful object:nil];
 }
 
 - (void)setupCollectionView
@@ -93,7 +94,7 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
 {
-    self.mediaManager = [[POPMediaManager alloc]initWithPopularMediaData:[notification.userInfo objectForKey:@"requestForPopularMediaResults"]];
+    self.mediaManager = [[POPMediaManager alloc]initWithPopularMediaData:[notification.userInfo objectForKey:kRequestForPopularMediaResultsKey]];
 
     [self requestMediaItemsFromMediaManager];
 }
@@ -117,7 +118,7 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Error Handling
 - (void)displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:(NSNotification *)notification
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:@"requestForPopularMediaResults"]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:kRequestForPopularMediaResultsKey]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 

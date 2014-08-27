@@ -9,6 +9,7 @@
 
 @interface POPMediaManager : NSObject
 
+
 @property (nonatomic, readonly) NSDictionary *popularMediaData;
 @property (nonatomic, readonly) NSMutableArray *popularMediaItems;
 @property (nonatomic, readonly) NSDictionary *taggedMediaData;

@@ -9,6 +9,14 @@
 #import "POPInstagramNetworkingClient.h"
 #import <AFNetworking.h>
 
+#pragma mark - Constants
+NSString * const kRequestForPopularMediaSuccessful = @"RequestForPopularMediaSuccessful";
+NSString * const kRequestForPopularMediaUnsuccessful = @"RequestForPopularMediaUnsuccessful";
+NSString * const kRequestForMediaWithTagSuccessful = @"RequestForMediaWithTagSuccessful";
+NSString * const kRequestForMediaWithTagUnsuccessful = @"RequestForMediaWithTagUnsuccessful";
+NSString * const kRequestForPopularMediaResultsKey = @"requestForPopularMediaResults";
+NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResults";
+
 @implementation POPInstagramNetworkingClient
 
 #pragma mark - Singleton
@@ -54,12 +62,12 @@
     [manager GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //Post success notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{@"requestForPopularMediaResults": responseObject}];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{kRequestForPopularMediaResultsKey: responseObject}];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         //Post failure notificaton
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaUnsuccessful object:nil userInfo:@{@"requestForPopularMediaResults": error}];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaUnsuccessful object:nil userInfo:@{kRequestForPopularMediaResultsKey: error}];
     }];
 }
 
@@ -75,12 +83,12 @@
     [manager GET:[NSString stringWithFormat:@"%@tags/%@/media/recent?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL, tag] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         //Post success notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagSuccessful object:nil userInfo:@{@"requestForTaggedMediaResults": responseObject}];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagSuccessful object:nil userInfo:@{kRequestForMediaWithTagResultsKey: responseObject}];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
         //Post failure notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagUnsuccessful object:nil userInfo:@{@"requestForTaggedMediaResults": error}];
+        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagUnsuccessful object:nil userInfo:@{kRequestForMediaWithTagResultsKey: error}];
     }];
 }
 
