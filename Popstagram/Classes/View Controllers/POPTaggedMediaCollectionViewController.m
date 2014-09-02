@@ -105,7 +105,7 @@ static NSString *cellIdentifier = @"cellId";
         
     } else {
         
-        self.collectionView.frame = CGRectMake(0, 80, 320, 600);
+        self.collectionView.frame = CGRectMake(0, 80, 320, 450);
     }
 
 }
