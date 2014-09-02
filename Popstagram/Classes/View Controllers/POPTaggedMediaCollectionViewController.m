@@ -71,7 +71,9 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupNavigationElements
 {
+    //Set nav bar's title text and text color
     self.navigationItem.title = @"Search by Hashtag";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1]};
 }
 
 - (void)setupActivityIndicator

@@ -18,7 +18,7 @@
         self.backgroundColor = [UIColor whiteColor];
 		self.textColor = [UIColor blackColor];
         self.layer.cornerRadius = 8.0f;
-        self.layer.borderColor = [[UIColor blueColor]CGColor];
+        self.layer.borderColor = [[UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1]CGColor];
         self.layer.borderWidth = 3.0f;
 		self.textAlignment = NSTextAlignmentCenter;
 		self.returnKeyType = UIReturnKeyGo;

@@ -38,6 +38,7 @@ static NSString *cellIdentifier = @"cellId";
     [super viewDidLoad];
     
     //Execute various setup methods
+    [self setupTabBarAppearance];
     [self setupTabBarItem];
     [self setupNavigationElements];
     [self setupActivityIndicator];
@@ -48,6 +49,12 @@ static NSString *cellIdentifier = @"cellId";
 }
 
 #pragma mark - Setup Methods
+- (void)setupTabBarAppearance
+{
+    //This sets the color for the tab bar items
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1];
+}
+
 - (void)setupTabBarItem
 {
     //This sets up the tab bar items for BOTH tabs
@@ -56,6 +63,7 @@ static NSString *cellIdentifier = @"cellId";
     [[self.tabBarController.viewControllers objectAtIndex:0]tabBarItem].image = [UIImage imageNamed:@"photos-50"];
     [[self.tabBarController.viewControllers objectAtIndex:0]tabBarItem].title = nil;
     
+    
     [[self.tabBarController.viewControllers objectAtIndex:1]tabBarItem].image = [UIImage imageNamed:@"search-50"];
     [[self.tabBarController.viewControllers objectAtIndex:1]tabBarItem].title = nil;
     
@@ -63,7 +71,9 @@ static NSString *cellIdentifier = @"cellId";
 
 - (void)setupNavigationElements
 {
+    //Set nav bar's title text and text color
     self.navigationItem.title = @"Popular Instagram Photos";
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1]};
 }
 
 - (void)setupActivityIndicator

@@ -22,6 +22,9 @@
     
     //Execute various setup methods
     [self setupStandardResolutionImageView];
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1];
+
+
 }
 
 - (void)setupStandardResolutionImageView

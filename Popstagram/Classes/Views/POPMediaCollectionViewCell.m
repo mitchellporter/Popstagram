@@ -22,12 +22,8 @@
     if (self) {
         
         //Customize cell's appearance
-        self.layer.borderColor = [UIColor blueColor].CGColor;
-        self.layer.shadowColor = [UIColor blueColor].CGColor;
+        self.layer.borderColor = [[UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1]CGColor];
         self.layer.borderWidth = 5.0f;
-        self.layer.shadowRadius = 5.0f;
-        self.layer.shadowOffset = CGSizeMake(0.0f, 2.0f);
-        self.layer.shadowOpacity = 0.5f;
         
         //Setup cell's image view property
         self.thumbnailImageView = [[UIImageView alloc] initWithFrame:self.bounds];
