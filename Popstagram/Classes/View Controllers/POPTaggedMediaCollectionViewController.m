@@ -64,7 +64,7 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Setup Methods
 - (void)setupTagTextField
 {
-    self.tagTextField = [[POPTagTextField alloc] initWithFrame:CGRectMake(10.0f, 70.0f, [UIScreen mainScreen].bounds.size.width - 20, 60.0f)];
+    self.tagTextField = [[POPTagTextField alloc] initWithFrame:CGRectMake(10.0f, 15.0f, [UIScreen mainScreen].bounds.size.width - 20, 60.0f)];
     self.tagTextField.delegate = self;
     [self.view addSubview:self.tagTextField];
 }
@@ -99,7 +99,7 @@ static NSString *cellIdentifier = @"cellId";
     //of cells is always fully visible regardless of screen size
     if ([[UIScreen mainScreen]bounds].size.height == 568) {
      
-        self.collectionView.frame = CGRectMake(0, 80, 320, 570);
+        self.collectionView.frame = CGRectMake(0, 80, 320, 490);
         
     } else {
         

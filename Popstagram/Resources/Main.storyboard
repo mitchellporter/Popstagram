@@ -9,7 +9,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="Llj-lj-K9K" customClass="POPPopularMediaCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="h61-Ch-qEI">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="rk5-Jd-hEe" customClass="POPMediaCollectionViewFlowLayout"/>
                         <cells/>
@@ -18,6 +18,7 @@
                             <outlet property="delegate" destination="Llj-lj-K9K" id="UJR-Yn-d1z"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="uhs-td-MXY"/>
                     <connections>
                         <segue destination="L2C-AP-gEr" kind="push" identifier="popularToMediaDisplaySegue" id="4wm-0C-Vzp"/>
@@ -51,7 +52,7 @@
             <objects>
                 <collectionViewController autoresizesArchivedViewToFullSize="NO" id="MXI-GE-7xs" customClass="POPTaggedMediaCollectionViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="0Vk-II-Spa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewLayout key="collectionViewLayout" id="XrB-x7-pRU" customClass="POPMediaCollectionViewFlowLayout"/>
                         <cells/>
@@ -60,6 +61,7 @@
                             <outlet property="delegate" destination="MXI-GE-7xs" id="kpD-i4-lQv"/>
                         </connections>
                     </collectionView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="5Tv-TT-GHQ"/>
                     <connections>
                         <segue destination="L2C-AP-gEr" kind="push" identifier="taggedToMediaDisplaySegue" id="mor-rK-pnw"/>
