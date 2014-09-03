@@ -101,7 +101,7 @@ static NSString *cellIdentifier = @"cellId";
     //of cells is always fully visible regardless of screen size
     if ([[UIScreen mainScreen]bounds].size.height == 568) {
      
-        self.collectionView.frame = CGRectMake(0, 80, 320, 490);
+        self.collectionView.frame = CGRectMake(0, 80, 320, 470);
         
     } else {
         
