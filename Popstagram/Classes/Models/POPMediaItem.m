@@ -34,4 +34,15 @@
     return self;
 }
 
+// This is a Mantle method override. It's a declarative method that maps the NPTopic object's
+// property names to their equivalent JSON key name.
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return @{@"username" : @"id",
+             @"thumbnailImage" : @"name",
+             @"lowResolutionImage" : @"blah",
+             @"standardResolutionImage" : @"blah"
+             };
+}
+
 @end
