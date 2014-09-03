@@ -51,26 +51,19 @@ NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResu
 }
 
 #pragma mark - Instance Methods
-- (void)requestPopularMedia
+- (NSURLSessionDataTask *)fetchPopularMediaOnSuccess:(void (^)(NSURLSessionDataTask *task, NSArray *popularMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 {
-    //Define notification names
-    static NSString * const kRequestForPopularMediaSuccessful = @"RequestForPopularMediaSuccessful";
-    static NSString * const kRequestForPopularMediaUnsuccessful = @"RequestForPopularMediaUnsuccessful";
     
-    
-    
-    //Create manager and execute GET method to retreive popular media
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSURLSessionDataTask *task = [self GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (success)
+            success(task, responseObject);
         
-        //Post success notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaSuccessful object:nil userInfo:@{kRequestForPopularMediaResultsKey: responseObject}];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        //Post failure notificaton
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForPopularMediaUnsuccessful object:nil userInfo:@{kRequestForPopularMediaResultsKey: error}];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (failure)
+            failure(task, error);
     }];
+    
+    return task;
 }
 
 - (void)requestMediaWithTag:(NSString *)tag

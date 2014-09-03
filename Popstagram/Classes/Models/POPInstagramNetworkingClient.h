@@ -20,7 +20,8 @@ extern NSString * const kRequestForMediaWithTagResultsKey;
 + (id)sharedPOPInstagramNetworkingClient;
 
 - (instancetype)initWithBaseURL:(NSURL *)url;
-- (void)requestPopularMedia;
+- (NSURLSessionDataTask *)fetchPopularMediaOnSuccess:(void (^)(NSURLSessionDataTask *task, NSArray *popularMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
+
 - (void)requestMediaWithTag:(NSString *)tag;
 
 @property (readonly) NSString * const myString;

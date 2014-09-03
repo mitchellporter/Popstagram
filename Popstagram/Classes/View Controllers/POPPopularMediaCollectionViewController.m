@@ -121,8 +121,14 @@ static NSString *cellIdentifier = @"cellId";
 #pragma mark - Networking Methods
 - (void)requestPopularMediaFromInstagram
 {
-    //Request popular media from Instagram
-    [self.sharedPOPInstagramNetworkingClient requestPopularMedia];
+    [self.sharedPOPInstagramNetworkingClient fetchPopularMediaOnSuccess:^(NSURLSessionDataTask *task, NSArray *popularMedia) {
+        
+        NSLog(@"Popular media: %@", popularMedia);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 #pragma mark - Error Handling
