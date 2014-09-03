@@ -7,6 +7,7 @@
 //
 
 #import "POPInstagramNetworkingClient.h"
+#import "POPMediaItemsSerializer.h"
 #import <AFNetworking.h>
 
 #pragma mark - Constants
@@ -53,7 +54,10 @@ NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResu
 #pragma mark - Instance Methods
 - (NSURLSessionDataTask *)fetchPopularMediaOnSuccess:(void (^)(NSURLSessionDataTask *task, NSArray *popularMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 {
+    //Set the serializer to our subclass
+    self.responseSerializer = [POPMediaItemsSerializer serializer];
     
+    //Create our data task and execute blocks based on success or failure of GET method
     NSURLSessionDataTask *task = [self GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         if (success)
             success(task, responseObject);

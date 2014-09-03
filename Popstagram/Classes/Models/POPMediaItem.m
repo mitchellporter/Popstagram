@@ -10,9 +10,9 @@
 
 @interface POPMediaItem ()
 
-@property (nonatomic, readwrite) UIImage *thumbnailImage;
-@property (nonatomic, readwrite) UIImage *lowResolutionImage;
-@property (nonatomic, readwrite) UIImage *standardResolutionImage;
+@property (nonatomic, readwrite) NSString *thumbnailImageUrl;
+@property (nonatomic, readwrite) NSString *lowResolutionImageUrl;
+@property (nonatomic, readwrite) NSString *standardResolutionImageUrl;
 @property (nonatomic, readwrite) NSString *username;
 
 @end
@@ -22,13 +22,12 @@
 - (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username
 {
     self = [super init];
-    
     if (self) {
         
         //Set the instance's properties
-        _thumbnailImage = [thumbnailImage copy];
-        _lowResolutionImage = [lowResolutionImage copy];
-        _standardResolutionImage = [standardResolutionImage copy];
+        thumbnailImage = [thumbnailImage copy];
+        lowResolutionImage = [lowResolutionImage copy];
+        standardResolutionImage = [standardResolutionImage copy];
         _username = [username copy];
     }
     return self;
@@ -38,10 +37,10 @@
 // property names to their equivalent JSON key name.
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
-    return @{@"username" : @"id",
-             @"thumbnailImage" : @"name",
-             @"lowResolutionImage" : @"blah",
-             @"standardResolutionImage" : @"blah"
+    return @{@"username" : @"user.username",
+             @"thumbnailImageUrl" : @"images.thumbnail.url",
+             @"lowResolutionImageUrl" : @"images.low_resolution.url",
+             @"standardResolutionImageUrl" : @"images.standard_resolution.url"
              };
 }
 

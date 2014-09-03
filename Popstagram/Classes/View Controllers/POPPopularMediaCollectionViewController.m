@@ -123,7 +123,11 @@ static NSString *cellIdentifier = @"cellId";
 {
     [self.sharedPOPInstagramNetworkingClient fetchPopularMediaOnSuccess:^(NSURLSessionDataTask *task, NSArray *popularMedia) {
         
-        NSLog(@"Popular media: %@", popularMedia);
+        //Set our mediaItems property to returned popular media,
+        //hide progress HUD, and reload collection view.
+        self.mediaItems = popularMedia;
+        [self.HUD hide:YES];
+        [self.collectionView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
@@ -146,15 +150,12 @@ static NSString *cellIdentifier = @"cellId";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   
     //Set cell identifier and grab reusable cell
     POPMediaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
     //Get current media item's thumbnailimage,
-    //add to image view, and add image view as cell's subview
-    //Now our cell displays our media item's thumbnail image
-    UIImage *thumbnailImage = [self.mediaItems[indexPath.row]thumbnailImage];
-    [cell.thumbnailImageView setImage:thumbnailImage];
+    //and set as cell's thumbnail image view.
+    [cell.thumbnailImageView setImage:[self.mediaItems[indexPath.row]thumbnailImage]];
     
     return cell;
 }

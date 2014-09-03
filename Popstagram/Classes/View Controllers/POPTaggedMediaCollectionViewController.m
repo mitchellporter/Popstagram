@@ -162,8 +162,9 @@ static NSString *cellIdentifier = @"cellId";
     //Get current media item's thumbnailimage,
     //add to image view, and add image view as cell's subview
     //Now our cell displays our media item's thumbnail image
-    UIImage *thumbnailImage = [self.taggedMediaItems[indexPath.row]thumbnailImage];
-    [cell.thumbnailImageView setImage:thumbnailImage];
+    
+    //UIImage *thumbnailImage = [self.taggedMediaItems[indexPath.row]thumbnailImage];
+    //[cell.thumbnailImageView setImage:thumbnailImage];
     
     return cell;
 }
