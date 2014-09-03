@@ -353,7 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Popstagram-resources.sh\"\n";
+			shellScript = "\"/Users/mitchellporter/Desktop/PopstagramMaster/Pods/Pods-Popstagram-resources.sh\"";
 			showEnvVarsInLog = 0;
 		};
 		B3135AA6E5984A1298EB6367 /* Check Pods Manifest.lock */ = {
