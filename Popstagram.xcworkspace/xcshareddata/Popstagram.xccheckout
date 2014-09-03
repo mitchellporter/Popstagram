@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>2D959D9F-E227-4BCF-983D-A45635575AB5</string>
+	<string>9D2D4338-4C3B-43EF-A166-3724B4A1FFAE</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Popstagram</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>865D4A90-AD19-430D-936F-6B1543240E56</key>
+		<key>64E73C88-A79E-4FDB-A913-E149E557E815</key>
 		<string>ssh://bitbucket.org/mitchellporter/popstagram.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Popstagram.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>865D4A90-AD19-430D-936F-6B1543240E56</key>
+		<key>64E73C88-A79E-4FDB-A913-E149E557E815</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,16 +25,16 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>865D4A90-AD19-430D-936F-6B1543240E56</string>
+	<string>64E73C88-A79E-4FDB-A913-E149E557E815</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>865D4A90-AD19-430D-936F-6B1543240E56</string>
+			<string>64E73C88-A79E-4FDB-A913-E149E557E815</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Popstagram - Develop</string>
+			<string>PopstagramDevelop copy</string>
 		</dict>
 	</array>
 </dict>
