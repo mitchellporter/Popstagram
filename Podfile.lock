@@ -20,14 +20,19 @@ PODS:
   - AFNetworking/UIKit (2.4.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Mantle (1.5):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.5)
   - MBProgressHUD (0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.3)
+  - Mantle (~> 1.5)
   - MBProgressHUD (~> 0.9)
 
 SPEC CHECKSUMS:
   AFNetworking: 6b4a5f150a93a9d10d57643fe91fad47a661f096
+  Mantle: c67a7e45e14196ed42b2a7cbb98ff6a9920e6b92
   MBProgressHUD: 2038dbcf3dce73215abed6001657043d53aa79a8
 
 COCOAPODS: 0.33.1

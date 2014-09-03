@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Popstagram-Mantle.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Popstagram.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>56B2DC28E1694D8C8F4EE96C</key>
+		<key>1D6472072B2F4BC9A38246C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>98BE2A95494048F8BCC96EE3</key>
+		<key>64F4DC31D7224887B9C7C82E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBE0B88E02E24547B0CCA5C2</key>
+		<key>7B745FC4AA544407A88A906D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E69721FEF0C04D3F8084B2BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

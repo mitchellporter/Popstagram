@@ -4,6 +4,7 @@
 target "Popstagram" do
 pod 'AFNetworking', '~> 2.3'
 pod 'MBProgressHUD', '~> 0.9'
+pod 'Mantle', '~> 1.5'
 end
 
 target "PopstagramTests" do
