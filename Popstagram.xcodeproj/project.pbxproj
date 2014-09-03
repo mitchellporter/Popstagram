@@ -11,6 +11,7 @@
 		C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */; };
 		C33AA1D919AC47510012BA48 /* POPMediaDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33AA1D819AC47510012BA48 /* POPMediaDisplayViewController.m */; };
 		C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */; };
+		C35A9DA319B7D30800DD2B77 /* POPMediaItemsSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = C35A9DA219B7D30800DD2B77 /* POPMediaItemsSerializer.m */; };
 		C3630A8519AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */; };
 		C3630A8819AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8719AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m */; };
 		C3630A8B19AC1CA3008C46C2 /* POPTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C3630A8A19AC1CA3008C46C2 /* POPTagTextField.m */; };
@@ -53,6 +54,8 @@
 		C33AA1D819AC47510012BA48 /* POPMediaDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMediaDisplayViewController.m; sourceTree = "<group>"; };
 		C34F7C4F19AA94F800A2AA0E /* POPInstagramNetworkingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPInstagramNetworkingClient.h; sourceTree = "<group>"; };
 		C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPInstagramNetworkingClient.m; sourceTree = "<group>"; };
+		C35A9DA119B7D30800DD2B77 /* POPMediaItemsSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMediaItemsSerializer.h; sourceTree = "<group>"; };
+		C35A9DA219B7D30800DD2B77 /* POPMediaItemsSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMediaItemsSerializer.m; sourceTree = "<group>"; };
 		C3630A8319AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPMediaCollectionViewFlowLayout.h; path = Views/POPMediaCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		C3630A8419AC0368008C46C2 /* POPMediaCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPMediaCollectionViewFlowLayout.m; path = Views/POPMediaCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C3630A8619AC1815008C46C2 /* POPTaggedMediaCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPTaggedMediaCollectionViewController.h; sourceTree = "<group>"; };
@@ -225,6 +228,8 @@
 				C30DF9B719AAFDAD00B435CC /* POPMediaManager.m */,
 				C30DF9B919AAFDBD00B435CC /* POPMediaItem.h */,
 				C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */,
+				C35A9DA119B7D30800DD2B77 /* POPMediaItemsSerializer.h */,
+				C35A9DA219B7D30800DD2B77 /* POPMediaItemsSerializer.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				C38BB5BF19AA7EA600D3996F /* POPAppDelegate.m in Sources */,
 				C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */,
 				C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */,
+				C35A9DA319B7D30800DD2B77 /* POPMediaItemsSerializer.m in Sources */,
 				C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */,
 				C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */,
 				C3630A8819AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m in Sources */,
