@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Mitchell Porter. All rights reserved.
 //
 
+#import <Mantle.h>
 
-@interface POPMediaItem : NSObject
+@interface POPMediaItem : MTLModel <MTLJSONSerializing>
 
 - (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username;
 
