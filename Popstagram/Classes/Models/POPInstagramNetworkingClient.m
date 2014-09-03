@@ -57,6 +57,8 @@ NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResu
     static NSString * const kRequestForPopularMediaSuccessful = @"RequestForPopularMediaSuccessful";
     static NSString * const kRequestForPopularMediaUnsuccessful = @"RequestForPopularMediaUnsuccessful";
     
+    
+    
     //Create manager and execute GET method to retreive popular media
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%@media/popular?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -77,6 +79,8 @@ NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResu
     //Define notification names
     static NSString * const kRequestForMediaWithTagSuccessful = @"RequestForMediaWithTagSuccessful";
     static NSString * const kRequestForMediaWithTagUnsuccessful = @"RequestForMediaWithTagUnsuccessful";
+    
+    
     
     //Create manager and execute GET method to retreive media with tag
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
