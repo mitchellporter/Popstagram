@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9B719AAFDAD00B435CC /* POPMediaManager.m */; };
 		C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */; };
 		C33AA1D919AC47510012BA48 /* POPMediaDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C33AA1D819AC47510012BA48 /* POPMediaDisplayViewController.m */; };
 		C34F7C5119AA94F800A2AA0E /* POPInstagramNetworkingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */; };
@@ -46,8 +45,6 @@
 /* Begin PBXFileReference section */
 		1CADE573836A428BBC285F9D /* Pods-Popstagram.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Popstagram.xcconfig"; path = "Pods/Pods-Popstagram.xcconfig"; sourceTree = "<group>"; };
 		B565E5E952884524A981CBEB /* libPods-Popstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Popstagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C30DF9B619AAFDAD00B435CC /* POPMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMediaManager.h; sourceTree = "<group>"; };
-		C30DF9B719AAFDAD00B435CC /* POPMediaManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMediaManager.m; sourceTree = "<group>"; };
 		C30DF9B919AAFDBD00B435CC /* POPMediaItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMediaItem.h; sourceTree = "<group>"; };
 		C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPMediaItem.m; sourceTree = "<group>"; };
 		C33AA1D719AC47510012BA48 /* POPMediaDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPMediaDisplayViewController.h; sourceTree = "<group>"; };
@@ -224,8 +221,6 @@
 			children = (
 				C34F7C4F19AA94F800A2AA0E /* POPInstagramNetworkingClient.h */,
 				C34F7C5019AA94F800A2AA0E /* POPInstagramNetworkingClient.m */,
-				C30DF9B619AAFDAD00B435CC /* POPMediaManager.h */,
-				C30DF9B719AAFDAD00B435CC /* POPMediaManager.m */,
 				C30DF9B919AAFDBD00B435CC /* POPMediaItem.h */,
 				C30DF9BA19AAFDBD00B435CC /* POPMediaItem.m */,
 				C35A9DA119B7D30800DD2B77 /* POPMediaItemsSerializer.h */,
@@ -387,7 +382,6 @@
 				C3860B3019AAAE56005AF4D5 /* POPPopularMediaCollectionViewController.m in Sources */,
 				C37283EA19ABB8B60034D24E /* POPMediaCollectionViewCell.m in Sources */,
 				C35A9DA319B7D30800DD2B77 /* POPMediaItemsSerializer.m in Sources */,
-				C30DF9B819AAFDAD00B435CC /* POPMediaManager.m in Sources */,
 				C30DF9BB19AAFDBD00B435CC /* POPMediaItem.m in Sources */,
 				C3630A8819AC1815008C46C2 /* POPTaggedMediaCollectionViewController.m in Sources */,
 				C33AA1D919AC47510012BA48 /* POPMediaDisplayViewController.m in Sources */,

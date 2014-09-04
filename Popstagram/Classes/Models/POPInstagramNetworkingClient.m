@@ -10,14 +10,6 @@
 #import "POPMediaItemsSerializer.h"
 #import <AFNetworking.h>
 
-#pragma mark - Constants
-NSString * const kRequestForPopularMediaSuccessful = @"RequestForPopularMediaSuccessful";
-NSString * const kRequestForPopularMediaUnsuccessful = @"RequestForPopularMediaUnsuccessful";
-NSString * const kRequestForMediaWithTagSuccessful = @"RequestForMediaWithTagSuccessful";
-NSString * const kRequestForMediaWithTagUnsuccessful = @"RequestForMediaWithTagUnsuccessful";
-NSString * const kRequestForPopularMediaResultsKey = @"requestForPopularMediaResults";
-NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResults";
-
 @implementation POPInstagramNetworkingClient
 
 #pragma mark - Singleton

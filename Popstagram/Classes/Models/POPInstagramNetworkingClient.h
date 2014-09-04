@@ -8,13 +8,6 @@
 
 #import "AFHTTPSessionManager.h"
 
-extern NSString * const kRequestForPopularMediaSuccessful;
-extern NSString * const kRequestForPopularMediaUnsuccessful;
-extern NSString * const kRequestForMediaWithTagSuccessful;
-extern NSString * const kRequestForMediaWithTagUnsuccessful;
-extern NSString * const kRequestForPopularMediaResultsKey;
-extern NSString * const kRequestForMediaWithTagResultsKey;
-
 @interface POPInstagramNetworkingClient : AFHTTPSessionManager
 
 + (id)sharedPOPInstagramNetworkingClient;

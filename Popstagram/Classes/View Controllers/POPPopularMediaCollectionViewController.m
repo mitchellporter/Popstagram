@@ -8,7 +8,6 @@
 
 #import "POPPopularMediaCollectionViewController.h"
 #import "POPInstagramNetworkingClient.h"
-#import "POPMediaManager.h"
 #import "POPMediaItem.h"
 #import "POPMediaCollectionViewCell.h"
 #import "POPMediaCollectionViewFlowLayout.h"
@@ -43,7 +42,6 @@ static NSString *cellIdentifier = @"cellId";
     [self setupNavigationElements];
     [self setupActivityIndicator];
     [self setupSharedPOPInstagramNetworkingClient];
-    [self setupNotificationObservers];
     [self setupCollectionView];
     [self requestPopularMediaFromInstagram];
 }
@@ -83,11 +81,6 @@ static NSString *cellIdentifier = @"cellId";
     self.HUD.mode = MBProgressHUDAnimationFade;
     [self.HUD show:YES];
 }
-- (void)setupNotificationObservers
-{
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:kRequestForPopularMediaSuccessful object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:) name:kRequestForPopularMediaUnsuccessful object:nil];
-}
 
 - (void)setupCollectionView
 {
@@ -102,12 +95,6 @@ static NSString *cellIdentifier = @"cellId";
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
 }
 
-- (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
-{
-    self.mediaManager = [[POPMediaManager alloc]initWithPopularMediaData:[notification.userInfo objectForKey:kRequestForPopularMediaResultsKey]];
-
-    [self requestMediaItemsFromMediaManager];
-}
 
 - (void)requestMediaItemsFromMediaManager
 {
@@ -131,14 +118,15 @@ static NSString *cellIdentifier = @"cellId";
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        NSLog(@"Error: %@", error);
+        //Display alert view with error
+        [self displayAlertViewForUnsuccessfulRequestForPopularMediaError:error];
     }];
 }
 
 #pragma mark - Error Handling
-- (void)displayAlertViewForUnsuccessfulRequestForPopularMediaNotification:(NSNotification *)notification
+- (void)displayAlertViewForUnsuccessfulRequestForPopularMediaError:(NSError *)error
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:kRequestForPopularMediaResultsKey]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 
@@ -179,13 +167,6 @@ static NSString *cellIdentifier = @"cellId";
     self.mediaDisplayViewController = segue.destinationViewController;
     self.mediaDisplayViewController.lowResolutionImage = [self.mediaItems[indexPath.row]lowResolutionImage];
     
-}
-
-#pragma mark - Dealloc
-- (void)dealloc
-{
-    //Remove class from notification center
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end

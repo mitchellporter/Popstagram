@@ -8,7 +8,6 @@
 
 #import "POPTaggedMediaCollectionViewController.h"
 #import "POPInstagramNetworkingClient.h"
-#import "POPMediaManager.h"
 #import "POPMediaItem.h"
 #import "POPMediaCollectionViewCell.h"
 #import "POPTagTextField.h"
@@ -45,7 +44,6 @@ static NSString *cellIdentifier = @"cellId";
     [self setupNavigationElements];
     [self setupCollectionView];
     [self setupSharedPOPInstagramNetworkingClient];
-    [self setupNotificationObservers];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -83,11 +81,6 @@ static NSString *cellIdentifier = @"cellId";
     self.HUD.mode = MBProgressHUDAnimationFade;
     [self.HUD show:YES];
 }
-- (void)setupNotificationObservers
-{
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setupMediaManagerWithMediaDataInNotification:) name:kRequestForMediaWithTagSuccessful object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:) name:kRequestForMediaWithTagUnsuccessful object:nil];
-}
 
 - (void)setupCollectionView
 {
@@ -113,15 +106,6 @@ static NSString *cellIdentifier = @"cellId";
 {
     //Setup shared networking client for Instagram
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
-}
-
-- (void)setupMediaManagerWithMediaDataInNotification:(NSNotification *)notification
-{
-    //Create media manager
-    self.mediaManager = [[POPMediaManager alloc]initWithTaggedMediaData:[notification.userInfo objectForKey:kRequestForMediaWithTagResultsKey]];
-    
-    //Request media items now that we've created our media manager
-    [self requestMediaItemsFromMediaManager];
 }
 
 #pragma mark - Media Manager Methods
@@ -220,13 +204,6 @@ static NSString *cellIdentifier = @"cellId";
     self.mediaDisplayViewController = segue.destinationViewController;
     self.mediaDisplayViewController.lowResolutionImage = [self.taggedMediaItems[indexPath.row]lowResolutionImage];
     
-}
-
-#pragma mark - Dealloc
-- (void)dealloc
-{
-    //Remove class from notification center
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end
