@@ -21,13 +21,11 @@
     [super viewDidLoad];
     
     //Execute various setup methods
-    [self setupStandardResolutionImageView];
+    [self setupLowResolutionImageView];
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.169 green:0.353 blue:0.514 alpha:1];
-
-
 }
 
-- (void)setupStandardResolutionImageView
+- (void)setupLowResolutionImageView
 {
     self.lowResolutionImageView = [[UIImageView alloc]initWithFrame:CGRectMake(7, 70, 306, 306)];
     self.lowResolutionImageView.image = self.lowResolutionImage;

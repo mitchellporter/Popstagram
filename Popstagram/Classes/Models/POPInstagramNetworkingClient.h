@@ -10,12 +10,12 @@
 
 @interface POPInstagramNetworkingClient : AFHTTPSessionManager
 
+@property (readonly) NSString * const myString;
+
 + (id)sharedPOPInstagramNetworkingClient;
 
 - (instancetype)initWithBaseURL:(NSURL *)url;
 - (NSURLSessionDataTask *)fetchPopularMediaOnSuccess:(void (^)(NSURLSessionDataTask *task, NSArray *popularMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 - (NSURLSessionDataTask *)requestMediaWithTag:(NSString *)tag success:(void (^)(NSURLSessionDataTask *task, NSArray *taggedMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-@property (readonly) NSString * const myString;
 
 @end

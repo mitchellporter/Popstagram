@@ -21,7 +21,6 @@ static NSString *cellIdentifier = @"cellId";
 
 #pragma mark - Properties
 @property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
-@property (nonatomic) POPMediaManager *mediaManager;
 @property (nonatomic) NSArray *taggedMediaItems;
 @property (nonatomic) MBProgressHUD *HUD;
 @property (nonatomic) POPTagTextField *tagTextField;
@@ -108,16 +107,6 @@ static NSString *cellIdentifier = @"cellId";
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
 }
 
-#pragma mark - Media Manager Methods
-- (void)requestMediaItemsFromMediaManager
-{
-    //Create and fetch media items from media manager,
-    //hide activity indicator, and reload collection view data
-    self.taggedMediaItems = [self.mediaManager createAndFetchTaggedMediaItemsWithTypeImage];
-    [self.HUD hide:YES];
-    [self.collectionView reloadData];
-}
-
 #pragma mark - Networking Methods
 - (void)requestTaggedMediaFromInstagramWithTag:(NSString *)tag
 {
@@ -178,10 +167,13 @@ static NSString *cellIdentifier = @"cellId";
     //Will run until ready to reload collection view
     [self setupActivityIndicator];
 
-    //Create final tag string after removing potential pound symbol
-    //Then pass final tag string to networking method
-    NSString *finalTagText = [textField.text stringByReplacingOccurrencesOfString:@"#" withString:@""];
-    [self requestTaggedMediaFromInstagramWithTag:finalTagText];
+    //Create new string after removing pound,
+    //then a final string after removing any blank space
+    NSString *tagTextWithoutPound = [textField.text stringByReplacingOccurrencesOfString:@"#" withString:@""];
+    NSString *finalTagText2 = [tagTextWithoutPound stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+    //Pass our final tag
+    [self requestTaggedMediaFromInstagramWithTag:finalTagText2];
     
     return NO;
 }

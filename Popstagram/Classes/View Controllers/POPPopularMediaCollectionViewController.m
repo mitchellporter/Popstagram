@@ -21,7 +21,6 @@ static NSString *cellIdentifier = @"cellId";
 
 #pragma mark - Properties
 @property (nonatomic) POPInstagramNetworkingClient *sharedPOPInstagramNetworkingClient;
-@property (nonatomic) POPMediaManager *mediaManager;
 @property (nonatomic) NSArray *mediaItems;
 @property (nonatomic) MBProgressHUD *HUD;
 @property (nonatomic) POPMediaDisplayViewController *mediaDisplayViewController;
@@ -93,16 +92,6 @@ static NSString *cellIdentifier = @"cellId";
 {
     //Setup shared networking client for Instagram
     self.sharedPOPInstagramNetworkingClient = [POPInstagramNetworkingClient sharedPOPInstagramNetworkingClient];
-}
-
-
-- (void)requestMediaItemsFromMediaManager
-{
-    //Create and fetch media items from media manager,
-    //hude activity indicator, and reload collection view data
-    self.mediaItems = [self.mediaManager createAndFetchPopularMediaItemsWithTypeImage];
-    [self.HUD hide:YES];
-    [self.collectionView reloadData];
 }
 
 #pragma mark - Networking Methods

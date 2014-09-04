@@ -19,20 +19,6 @@
 
 @implementation POPMediaItem
 
-- (instancetype)initWithThumbnailImage:(UIImage *)thumbnailImage lowResolutionImage:(UIImage *)lowResolutionImage standardResolutionImage:(UIImage *)standardResolutionImage username:(NSString *)username
-{
-    self = [super init];
-    if (self) {
-        
-        //Set the instance's properties
-        thumbnailImage = [thumbnailImage copy];
-        lowResolutionImage = [lowResolutionImage copy];
-        standardResolutionImage = [standardResolutionImage copy];
-        _username = [username copy];
-    }
-    return self;
-}
-
 // This is a Mantle method override. It's a declarative method that maps the NPTopic object's
 // property names to their equivalent JSON key name.
 + (NSDictionary *)JSONKeyPathsByPropertyKey
