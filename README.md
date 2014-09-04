@@ -7,13 +7,15 @@ I hope you enjoy using this app as much as I enjoyed building it.
 Popstagram utilizes the following API's to fetch and display data:
 - [Instagram API](http://instagram.com/developer/)
 
-Popstagram implements the following libraries and frameworks:
+Popstagram implements the following notable libraries and frameworks:
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - A delightful iOS and OS X networking framework
 
 - [Mantle](https://github.com/Mantle/Mantle) - A model framework for Cocoa and Cocoa Touch
 
 - [MBProgressHUD](https://github.com/jdg/MBProgressHUD) - MBProgressHUD + Customizations
+
+- [UIKit Dynamics](https://developer.apple.com/library/ios/samplecode/DynamicsCatalog/Introduction/Intro.html) - Part of the [UIKit Framework](https://developer.apple.com/library/ios/documentation/uikit/reference/uikit_framework/_index.html) - Physics-based animation engine
 
 Display the most popular photos on Instagram at the moment:
 
