@@ -1,8 +1,5 @@
 Popstagram
 ==========
-
-Instagram app for iOS - Displays popular media and searches by hashtag
-
 Popstagram is a fun little iOS app I made that takes some of the clutter out of using the official Instagram app. Popstagram allows you to easily view the most popular Instagram photos at the moment, or to search for photos by hashtag.
 
 I hope you enjoy using this app as much as I enjoyed making it.
