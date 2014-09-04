@@ -15,7 +15,7 @@ Popstagram implements the following libraries and frameworks:
 
 - [MBProgressHUD](https://github.com/jdg/MBProgressHUD) - MBProgressHUD + Customizations
 
-Display the most popular photos on Instagram at the moment.
+Display the most popular photos on Instagram at the moment:
 
 ![alt tag](https://s5.mzstatic.com/us/r30/Purple1/v4/15/1e/6f/151e6f49-93af-044b-cee4-15653711f615/mzl.sipscrey.png?downloadKey=1410407282_9a93a70154ed3db528d7e200f309ce34)
 
