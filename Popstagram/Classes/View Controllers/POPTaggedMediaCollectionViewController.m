@@ -138,13 +138,26 @@ static NSString *cellIdentifier = @"cellId";
 - (void)requestTaggedMediaFromInstagramWithTag:(NSString *)tag
 {
     //Request popular media from Instagram with the passed tag
-    [self.sharedPOPInstagramNetworkingClient requestMediaWithTag:tag];
+    [self.sharedPOPInstagramNetworkingClient requestMediaWithTag:tag success:^(NSURLSessionDataTask *task, NSArray *taggedMedia) {
+        
+        //Set taggedMediaItems property to returned tagged media,
+        //hide progress HUD and reload collection view data
+        self.taggedMediaItems = taggedMedia;
+        [self.HUD hide:YES];
+        [self.collectionView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        //Display the alert view with error
+        [self displayAlertViewForUnsuccessfulRequestForMediaWithTagError:error];
+        
+    }];
 }
 
 #pragma mark - Error Handling
-- (void)displayAlertViewForUnsuccessfulRequestForMediaWithTagNotification:(NSNotification *)notification
+- (void)displayAlertViewForUnsuccessfulRequestForMediaWithTagError:(NSError *)error
 {
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", [notification.userInfo objectForKey:kRequestForMediaWithTagResultsKey]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Error" message:[NSString stringWithFormat:@"There has been an error: %@", error] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
 }
 
@@ -159,12 +172,9 @@ static NSString *cellIdentifier = @"cellId";
     //Set cell identifier and grab reusable cell
     POPMediaCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
-    //Get current media item's thumbnailimage,
-    //add to image view, and add image view as cell's subview
-    //Now our cell displays our media item's thumbnail image
-    
-    //UIImage *thumbnailImage = [self.taggedMediaItems[indexPath.row]thumbnailImage];
-    //[cell.thumbnailImageView setImage:thumbnailImage];
+    //Get current tagged media item's thumbnail image property,
+    //and set as the cell's image view image
+    [cell.thumbnailImageView setImage:[self.taggedMediaItems[indexPath.row]thumbnailImage]];
     
     return cell;
 }

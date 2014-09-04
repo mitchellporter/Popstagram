@@ -21,8 +21,7 @@ extern NSString * const kRequestForMediaWithTagResultsKey;
 
 - (instancetype)initWithBaseURL:(NSURL *)url;
 - (NSURLSessionDataTask *)fetchPopularMediaOnSuccess:(void (^)(NSURLSessionDataTask *task, NSArray *popularMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
-
-- (void)requestMediaWithTag:(NSString *)tag;
+- (NSURLSessionDataTask *)requestMediaWithTag:(NSString *)tag success:(void (^)(NSURLSessionDataTask *task, NSArray *taggedMedia))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @property (readonly) NSString * const myString;
 

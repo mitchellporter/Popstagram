@@ -70,27 +70,25 @@ NSString * const kRequestForMediaWithTagResultsKey = @"requestForTaggedMediaResu
     return task;
 }
 
-- (void)requestMediaWithTag:(NSString *)tag
+-(NSURLSessionDataTask *)requestMediaWithTag:(NSString *)tag success:(void (^)(NSURLSessionDataTask *, NSArray *))success failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
 {
     
-    //Define notification names
-    static NSString * const kRequestForMediaWithTagSuccessful = @"RequestForMediaWithTagSuccessful";
-    static NSString * const kRequestForMediaWithTagUnsuccessful = @"RequestForMediaWithTagUnsuccessful";
+    //Set the serializer to our subclass
+    self.responseSerializer = [POPMediaItemsSerializer serializer];
     
-    
-    
-    //Create manager and execute GET method to retreive media with tag
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"%@tags/%@/media/recent?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL, tag] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    //Create our data task and execute blocks based on success or failure of GET method
+    NSURLSessionDataTask *task = [self GET:[NSString stringWithFormat:@"%@tags/%@/media/recent?client_id=76566d0e6d5a41069ea5e8c86fbbd509", self.baseURL, tag] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        //Post success notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagSuccessful object:nil userInfo:@{kRequestForMediaWithTagResultsKey: responseObject}];
+        if (success)
+            success(task, responseObject);
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        //Post failure notification
-        [[NSNotificationCenter defaultCenter]postNotificationName:kRequestForMediaWithTagUnsuccessful object:nil userInfo:@{kRequestForMediaWithTagResultsKey: error}];
+        if (failure)
+            failure(task, error);
     }];
+    
+    return task;
 }
 
 @end
